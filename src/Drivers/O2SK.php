@@ -3,13 +3,14 @@
 
 namespace Matthewbdaly\SMS\Drivers;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface as GuzzleClient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\RequestOptions;
 use Matthewbdaly\SMS\Contracts\Driver;
+use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
 
 /**
  * Class O2SK
@@ -19,35 +20,48 @@ use Matthewbdaly\SMS\Contracts\Driver;
 class O2SK implements Driver
 {
     /**
-     * @var Client
+     * Guzzle client.
+     *
+     * @var GuzzleClient
      */
     private $client;
+
     /**
+     * API Key.
+     *
      * @var string
      */
     private $apiKey;
+
     /**
+     * Endpoint.
+     *
      * @var string
      */
     private $endpoint;
 
     /**
      * O2SK constructor.
-     * @param Client $client
-     * @param array $config
+     * @param GuzzleClient $client The Guzzle Client instance.
+     * @param array        $config The configuration array.
+     * @throws DriverNotConfiguredException Driver not configured correctly.
      */
-    public function __construct(Client $client, array $config)
+    public function __construct(GuzzleClient $client, array $config)
     {
         $this->client = $client;
         $config = array_merge([
-            'apiKey'   => '',
             'endpoint' => 'https://api-tls12.smstools.sk/3/send_batch'
         ], $config);
+        if (!array_key_exists('apiKey', $config)) {
+            throw new DriverNotConfiguredException();
+        }
         $this->apiKey = $config['apiKey'];
         $this->endpoint = $config['endpoint'];
     }
 
     /**
+     * Get driver name.
+     *
      * @return string
      */
     public function getDriver(): string
@@ -56,6 +70,8 @@ class O2SK implements Driver
     }
 
     /**
+     * Get endpoint URL.
+     *
      * @return string
      */
     public function getEndpoint(): string
@@ -64,12 +80,14 @@ class O2SK implements Driver
     }
 
     /**
-     * @param array $message
-     * @return bool
-     * @throws \Matthewbdaly\SMS\Exceptions\ClientException
-     * @throws \Matthewbdaly\SMS\Exceptions\ConnectException
-     * @throws \Matthewbdaly\SMS\Exceptions\RequestException
-     * @throws \Matthewbdaly\SMS\Exceptions\ServerException
+     * Send the SMS.
+     *
+     * @param array $message An array containing the message.
+     * @return boolean
+     * @throws \Matthewbdaly\SMS\Exceptions\ClientException  Client exception.
+     * @throws \Matthewbdaly\SMS\Exceptions\ServerException  Server exception.
+     * @throws \Matthewbdaly\SMS\Exceptions\RequestException Request exception.
+     * @throws \Matthewbdaly\SMS\Exceptions\ConnectException Connect exception.
      */
     public function sendRequest(array $message): bool
     {

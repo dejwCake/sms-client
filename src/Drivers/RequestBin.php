@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Matthewbdaly\SMS\Drivers;
@@ -51,15 +52,15 @@ class RequestBin implements Driver
      * @param GuzzleClient      $client   The Guzzle Client instance.
      * @param ResponseInterface $response The response instance.
      * @param array             $config   The configuration array.
+     * @return void
      * @throws DriverNotConfiguredException Driver not configured correctly.
      *
-     * @return void
      */
     public function __construct(GuzzleClient $client, ResponseInterface $response, array $config)
     {
         $this->client = $client;
         $this->response = $response;
-        if (! array_key_exists('path', $config)) {
+        if (!array_key_exists('path', $config)) {
             throw new DriverNotConfiguredException();
         }
         $this->path = $config['path'];
@@ -82,7 +83,7 @@ class RequestBin implements Driver
      */
     public function getEndpoint(): string
     {
-        return $this->endpoint.$this->path;
+        return $this->endpoint . $this->path;
     }
 
     /**
@@ -90,12 +91,12 @@ class RequestBin implements Driver
      *
      * @param array $message An array containing the message.
      *
-     * @throws \Matthewbdaly\SMS\Exceptions\ClientException  Client exception.
+     * @return boolean
      * @throws \Matthewbdaly\SMS\Exceptions\ServerException  Server exception.
      * @throws \Matthewbdaly\SMS\Exceptions\RequestException Request exception.
      * @throws \Matthewbdaly\SMS\Exceptions\ConnectException Connect exception.
      *
-     * @return boolean
+     * @throws \Matthewbdaly\SMS\Exceptions\ClientException  Client exception.
      */
     public function sendRequest(array $message): bool
     {

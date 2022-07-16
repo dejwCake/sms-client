@@ -1,11 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Matthewbdaly\SMS\Exceptions;
 
+use Exception;
+
 /**
  * Request exception
  */
-class RequestException extends \Exception
+class RequestException extends Exception
 {
 }

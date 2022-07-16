@@ -1,10 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Matthewbdaly\SMS\Drivers;
 
+use Aws\Sns\Exception\SnsException;
 use Matthewbdaly\SMS\Contracts\Driver;
 use Aws\Sns\SnsClient;
+use Matthewbdaly\SMS\Exceptions\ClientException;
 use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
 
 /**
@@ -38,24 +41,27 @@ class Aws implements Driver
      *
      * @param array          $config The configuration array.
      * @param SnsClient|null $sns    The Amazon SNS client.
+     * @return void
      * @throws DriverNotConfiguredException Driver not configured correctly.
      *
-     * @return void
      */
     public function __construct(array $config = [], SnsClient $sns = null)
     {
         if (!$sns) {
-            if (! array_key_exists('api_key', $config) || ! array_key_exists('api_secret', $config) || ! array_key_exists('api_region', $config)) {
+            if (!array_key_exists('api_key', $config) || !array_key_exists('api_secret', $config) || !array_key_exists(
+                'api_region',
+                $config
+            )) {
                 throw new DriverNotConfiguredException();
             }
-            $params = array(
-                'credentials' => array(
+            $params = [
+                'credentials' => [
                     'key' => $config['api_key'],
                     'secret' => $config['api_secret']
-                ),
+                ],
                 'region' => $config['api_region'],
                 'version' => 'latest'
-            );
+            ];
             $sns = new SnsClient($params);
         }
         $this->sns = $sns;
@@ -86,28 +92,28 @@ class Aws implements Driver
      *
      * @param array $message An array containing the message.
      *
-     * @throws \Matthewbdaly\SMS\Exceptions\ClientException  Client exception.
-     *
      * @return boolean
+     * @throws ClientException  Client exception.
+     *
      */
     public function sendRequest(array $message): bool
     {
         try {
-            $args = array(
+            $args = [
                 'MessageAttributes' => [
                     'AWS.SNS.SMS.SenderID' => [
-                           'DataType' => 'String',
-                           'StringValue' => $message['from']
+                        'DataType' => 'String',
+                        'StringValue' => $message['from']
                     ]
-                 ],
+                ],
                 "SMSType" => "Transactional",
                 "Message" => $message['content'],
                 "PhoneNumber" => $message['to']
-            );
+            ];
 
             $this->sns->publish($args);
-        } catch (\Aws\Sns\Exception\SnsException $e) {
-            throw new \Matthewbdaly\SMS\Exceptions\ClientException();
+        } catch (SnsException $e) {
+            throw new ClientException();
         }
 
         return true;

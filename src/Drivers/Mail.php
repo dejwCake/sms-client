@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Matthewbdaly\SMS\Drivers;
@@ -31,14 +32,14 @@ class Mail implements Driver
      *
      * @param Mailer $mailer The Mailer instance.
      * @param array  $config The configuration.
+     * @return void
      * @throws DriverNotConfiguredException Driver not configured correctly.
      *
-     * @return void
      */
     public function __construct(Mailer $mailer, array $config)
     {
         $this->mailer = $mailer;
-        if (! array_key_exists('domain', $config)) {
+        if (!array_key_exists('domain', $config)) {
             throw new DriverNotConfiguredException();
         }
         $this->endpoint = $config['domain'];
