@@ -20,7 +20,13 @@
     "authors": [
         {
             "name": "Matthew Daly",
-            "email": "matthewbdaly@gmail.com"
+            "email": "matthewbdaly@gmail.com",
+            "role": "Original Developer"
+        },
+        {
+            "name": "David Běhal",
+            "email": "behal.david@gmail.com",
+            "role": "Fork Developer"
         }
     ],
     "autoload": {
