@@ -4,6 +4,10 @@ namespace spec\Matthewbdaly\SMS\Drivers;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface as GuzzleInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
@@ -37,7 +41,10 @@ class ClockworkSpec extends ObjectBehavior
         $config = [
         ];
         $this->beConstructedWith($client, $response, $config);
-        $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during('__construct', [$client, $response, $config]);
+        $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during(
+            '__construct',
+            [$client, $response, $config]
+        );
     }
 
     public function it_returns_the_driver_name()
@@ -53,12 +60,12 @@ class ClockworkSpec extends ObjectBehavior
     public function it_sends_the_request(ResponseInterface $response)
     {
         $msg = [
-            'to'      => '+44 01234 567890',
+            'to' => '+44 01234 567890',
             'content' => 'Just testing',
         ];
         $mock = new MockHandler(
             [
-            new GuzzleResponse(201),
+                new GuzzleResponse(201),
             ]
         );
         $handler = HandlerStack::create($mock);
@@ -73,18 +80,18 @@ class ClockworkSpec extends ObjectBehavior
     public function it_throws_an_error_for_400(ResponseInterface $response)
     {
         $msg = [
-            'to'      => '+44 01234 567890',
+            'to' => '+44 01234 567890',
             'content' => 'Just testing',
         ];
         $mock = new MockHandler(
             [
-            new \GuzzleHttp\Exception\ClientException("", new Request('POST', 'test'))
+                new ClientException("", new Request('POST', 'test'), new GuzzleResponse())
             ]
         );
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key'    => 'MY_DUMMY_API_KEY',
+            'api_key' => 'MY_DUMMY_API_KEY',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ClientException')->during('sendRequest', [$msg]);
@@ -93,18 +100,18 @@ class ClockworkSpec extends ObjectBehavior
     public function it_throws_an_error_for_500(ResponseInterface $response)
     {
         $msg = [
-            'to'      => '+44 01234 567890',
+            'to' => '+44 01234 567890',
             'content' => 'Just testing',
         ];
         $mock = new MockHandler(
             [
-            new \GuzzleHttp\Exception\ServerException("", new Request('POST', 'test'))
+                new ServerException("", new Request('POST', 'test'), new GuzzleResponse())
             ]
         );
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key'    => 'MY_DUMMY_API_KEY',
+            'api_key' => 'MY_DUMMY_API_KEY',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ServerException')->during('sendRequest', [$msg]);
@@ -113,18 +120,18 @@ class ClockworkSpec extends ObjectBehavior
     public function it_throws_an_error_for_request_exception(ResponseInterface $response)
     {
         $msg = [
-            'to'      => '+44 01234 567890',
+            'to' => '+44 01234 567890',
             'content' => 'Just testing',
         ];
         $mock = new MockHandler(
             [
-            new \GuzzleHttp\Exception\RequestException("", new Request('POST', 'test'))
+                new RequestException("", new Request('POST', 'test'))
             ]
         );
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key'    => 'MY_DUMMY_API_KEY',
+            'api_key' => 'MY_DUMMY_API_KEY',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\RequestException')->during('sendRequest', [$msg]);
@@ -133,18 +140,18 @@ class ClockworkSpec extends ObjectBehavior
     public function it_throws_an_error_for_connect_exception(ResponseInterface $response)
     {
         $msg = [
-            'to'      => '+44 01234 567890',
+            'to' => '+44 01234 567890',
             'content' => 'Just testing',
         ];
         $mock = new MockHandler(
             [
-            new \GuzzleHttp\Exception\ConnectException("", new Request('POST', 'test'))
+                new ConnectException("", new Request('POST', 'test'))
             ]
         );
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key'    => 'MY_DUMMY_API_KEY',
+            'api_key' => 'MY_DUMMY_API_KEY',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ConnectException')->during('sendRequest', [$msg]);

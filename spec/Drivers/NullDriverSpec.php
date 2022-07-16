@@ -39,7 +39,7 @@ class NullDriverSpec extends ObjectBehavior
     public function it_sends_the_request()
     {
         $msg = [
-            'to'      => '+44 01234 567890',
+            'to' => '+44 01234 567890',
             'content' => 'Just testing',
         ];
         $this->sendRequest($msg)->shouldReturn(true);

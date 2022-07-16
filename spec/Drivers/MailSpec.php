@@ -27,7 +27,10 @@ class MailSpec extends ObjectBehavior
         $config = [
         ];
         $this->beConstructedWith($mailer, $config);
-        $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during('__construct', [$mailer, $config]);
+        $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during(
+            '__construct',
+            [$mailer, $config]
+        );
     }
 
     public function it_implements_interface()
@@ -48,7 +51,7 @@ class MailSpec extends ObjectBehavior
     public function it_sends_the_request(Mailer $mailer)
     {
         $msg = [
-            'to'      => '+44 01234 567890',
+            'to' => '+44 01234 567890',
             'content' => 'Just testing',
         ];
         $config = [

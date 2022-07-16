@@ -28,7 +28,8 @@ class AwsSpec extends ObjectBehavior
         $config = [
         ];
         $this->beConstructedWith($config);
-        $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during('__construct', [$config]);
+        $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during('__construct', [$config]
+        );
     }
 
     public function it_returns_the_driver_name()
@@ -44,7 +45,7 @@ class AwsSpec extends ObjectBehavior
     public function it_can_be_constructed_with_config_only()
     {
         $config = [
-            'api_key'    => 'foo',
+            'api_key' => 'foo',
             'api_secret' => 'bar',
             'api_region' => 'ap-southeast-2'
         ];
@@ -55,17 +56,17 @@ class AwsSpec extends ObjectBehavior
     public function it_sends_the_request(SnsClient $sns)
     {
         $msg = [
-            'to'      => '+44 01234 567890',
-            'from'    => 'Tester',
+            'to' => '+44 01234 567890',
+            'from' => 'Tester',
             'content' => 'Just testing',
         ];
         $args = [
             'MessageAttributes' => [
                 'AWS.SNS.SMS.SenderID' => [
-                       'DataType' => 'String',
-                       'StringValue' => $msg['from']
+                    'DataType' => 'String',
+                    'StringValue' => $msg['from']
                 ]
-             ],
+            ],
             "SMSType" => "Transactional",
             "Message" => $msg['content'],
             "PhoneNumber" => $msg['to']
