@@ -1,5 +1,5 @@
 {
-    "name": "matthewbdaly/sms-client",
+    "name": "dejwcake/sms-client",
     "description": "A generic SMS client library. Supports multiple swappable drivers.",
     "type": "library",
     "keywords": ["sms"],
