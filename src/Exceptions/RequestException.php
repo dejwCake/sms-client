@@ -9,6 +9,6 @@ use Exception;
 /**
  * Request exception
  */
-class RequestException extends Exception
+final class RequestException extends Exception
 {
 }

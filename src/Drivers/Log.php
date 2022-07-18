@@ -4,24 +4,20 @@ declare(strict_types=1);
 
 namespace Matthewbdaly\SMS\Drivers;
 
-use Psr\Log\LoggerInterface;
 use Matthewbdaly\SMS\Contracts\Driver;
+use Psr\Log\LoggerInterface;
 
 /**
  * Driver for Clockwork.
  */
-class Log implements Driver
+final class Log implements Driver
 {
     /**
      * Logger.
-     *
-     * @var
      */
-    private $logger;
+    private LoggerInterface $logger;
 
     /**
-     * Constructor
-     *
      * @param LoggerInterface $logger The logger instance.
      */
     public function __construct(LoggerInterface $logger)
@@ -31,8 +27,6 @@ class Log implements Driver
 
     /**
      * Get driver name.
-     *
-     * @return string
      */
     public function getDriver(): string
     {
@@ -41,8 +35,6 @@ class Log implements Driver
 
     /**
      * Get endpoint URL.
-     *
-     * @return string
      */
     public function getEndpoint(): string
     {
@@ -52,13 +44,12 @@ class Log implements Driver
     /**
      * Send the request.
      *
-     * @param array $message An array containing the message.
-     *
-     * @return boolean
+     * @param array<string, string> $message An array containing the message.
      */
     public function sendRequest(array $message): bool
     {
         $this->logger->info('Message sent', $message);
+
         return true;
     }
 }

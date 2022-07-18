@@ -9,6 +9,6 @@ use Exception;
 /**
  * Driver not configured exception
  */
-class DriverNotConfiguredException extends Exception
+final class DriverNotConfiguredException extends Exception
 {
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace spec\Matthewbdaly\SMS\Drivers;
 
 use GuzzleHttp\Client as GuzzleClient;
@@ -13,13 +15,11 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use Matthewbdaly\SMS\Drivers\O2SK;
-use Psr\Http\Message\ResponseInterface;
-use Matthewbdaly\SMS\Drivers\Twilio;
 use PhpSpec\ObjectBehavior;
 
-class O2SKSpec extends ObjectBehavior
+final class O2SKSpec extends ObjectBehavior
 {
-    public function let(GuzzleInterface $client)
+    public function let(GuzzleInterface $client): void
     {
         $config = [
             'apiKey' => 'MY_O2SK_API_KEY',
@@ -27,40 +27,38 @@ class O2SKSpec extends ObjectBehavior
         $this->beConstructedWith($client, $config);
     }
 
-    public function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldHaveType(O2SK::class);
     }
 
-    public function it_implements_interface()
+    public function it_implements_interface(): void
     {
         $this->shouldImplement('Matthewbdaly\SMS\Contracts\Driver');
     }
 
-    public function it_throws_exception_if_api_key_not_configured(GuzzleInterface $client)
+    public function it_throws_exception_if_api_key_not_configured(GuzzleInterface $client): void
     {
         $config = [
         ];
         $this->beConstructedWith($client, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during(
             '__construct',
-            [$client, $config]
+            [$client, $config],
         );
     }
 
-    public function it_returns_the_driver_name()
+    public function it_returns_the_driver_name(): void
     {
         $this->getDriver()->shouldReturn('O2SK');
     }
 
-    public function it_returns_the_driver_endpoint()
+    public function it_returns_the_driver_endpoint(): void
     {
-        $this->getEndpoint()->shouldReturn(
-            'https://api-tls12.smstools.sk/3/send_batch'
-        );
+        $this->getEndpoint()->shouldReturn('https://api-tls12.smstools.sk/3/send_batch');
     }
 
-    public function it_sends_the_request()
+    public function it_sends_the_request(): void
     {
         $msg = [
             'to' => '+44 01234 567890',
@@ -70,7 +68,7 @@ class O2SKSpec extends ObjectBehavior
         $mock = new MockHandler(
             [
                 new GuzzleResponse(201),
-            ]
+            ],
         );
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
@@ -81,7 +79,7 @@ class O2SKSpec extends ObjectBehavior
         $this->sendRequest($msg)->shouldReturn(true);
     }
 
-    public function it_throws_an_error_for_400()
+    public function it_throws_an_error_for_400(): void
     {
         $msg = [
             'to' => '+44 01234 567890',
@@ -90,8 +88,8 @@ class O2SKSpec extends ObjectBehavior
         ];
         $mock = new MockHandler(
             [
-                new ClientException("", new Request('POST', 'test'), new GuzzleResponse())
-            ]
+                new ClientException("", new Request('POST', 'test'), new GuzzleResponse()),
+            ],
         );
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
@@ -102,7 +100,7 @@ class O2SKSpec extends ObjectBehavior
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ClientException')->during('sendRequest', [$msg]);
     }
 
-    public function it_throws_an_error_for_500()
+    public function it_throws_an_error_for_500(): void
     {
         $msg = [
             'to' => '+44 01234 567890',
@@ -111,8 +109,8 @@ class O2SKSpec extends ObjectBehavior
         ];
         $mock = new MockHandler(
             [
-                new ServerException("", new Request('POST', 'test'), new GuzzleResponse())
-            ]
+                new ServerException("", new Request('POST', 'test'), new GuzzleResponse()),
+            ],
         );
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
@@ -123,7 +121,7 @@ class O2SKSpec extends ObjectBehavior
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ServerException')->during('sendRequest', [$msg]);
     }
 
-    public function it_throws_an_error_for_request_exception()
+    public function it_throws_an_error_for_request_exception(): void
     {
         $msg = [
             'to' => '+44 01234 567890',
@@ -132,8 +130,8 @@ class O2SKSpec extends ObjectBehavior
         ];
         $mock = new MockHandler(
             [
-                new RequestException("", new Request('POST', 'test'))
-            ]
+                new RequestException("", new Request('POST', 'test')),
+            ],
         );
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
@@ -144,7 +142,7 @@ class O2SKSpec extends ObjectBehavior
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\RequestException')->during('sendRequest', [$msg]);
     }
 
-    public function it_throws_an_error_for_connect_exception()
+    public function it_throws_an_error_for_connect_exception(): void
     {
         $msg = [
             'to' => '+44 01234 567890',
@@ -153,8 +151,8 @@ class O2SKSpec extends ObjectBehavior
         ];
         $mock = new MockHandler(
             [
-                new ConnectException("", new Request('POST', 'test'))
-            ]
+                new ConnectException("", new Request('POST', 'test')),
+            ],
         );
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);

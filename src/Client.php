@@ -10,21 +10,15 @@ use Matthewbdaly\SMS\Contracts\Driver;
 /**
  * SMS client.
  */
-class Client implements ClientContract
+final class Client implements ClientContract
 {
     /**
      * Driver to use.
-     *
-     * @var
      */
-    private $driver;
+    private Driver $driver;
 
     /**
-     * Constructor.
-     *
      * @param Driver $driver The driver to use.
-     *
-     * @return void
      */
     public function __construct(Driver $driver)
     {
@@ -33,8 +27,6 @@ class Client implements ClientContract
 
     /**
      * Get the driver name.
-     *
-     * @return string
      */
     public function getDriver(): string
     {
@@ -44,9 +36,7 @@ class Client implements ClientContract
     /**
      * Send the message.
      *
-     * @param array $msg The message array.
-     *
-     * @return boolean
+     * @param array<string, string> $msg The message array.
      */
     public function send(array $msg): bool
     {

@@ -9,6 +9,6 @@ use Exception;
 /**
  * Connect exception
  */
-class ConnectException extends Exception
+final class ConnectException extends Exception
 {
 }

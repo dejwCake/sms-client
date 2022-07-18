@@ -9,6 +9,6 @@ use Exception;
 /**
  * Client exception
  */
-class ClientException extends Exception
+final class ClientException extends Exception
 {
 }

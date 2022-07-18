@@ -11,17 +11,13 @@ interface Client
 {
     /**
      * Get the driver name.
-     *
-     * @return string
      */
     public function getDriver(): string;
 
     /**
      * Send the message.
      *
-     * @param array $msg The message array.
-     *
-     * @return boolean
+     * @param array<string, string> $msg The message array.
      */
     public function send(array $msg): bool;
 }

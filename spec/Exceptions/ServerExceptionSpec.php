@@ -1,20 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace spec\Matthewbdaly\SMS\Exceptions;
 
 use Matthewbdaly\SMS\Exceptions\ServerException;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
-class ServerExceptionSpec extends ObjectBehavior
+final class ServerExceptionSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldHaveType(ServerException::class);
     }
 
-    function it_is_an_exception()
+    public function it_is_an_exception(): void
     {
-        $this->shouldHaveType(\Exception::class);
+        $this->shouldHaveType(\Throwable::class);
     }
 }

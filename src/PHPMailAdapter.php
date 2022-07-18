@@ -9,16 +9,15 @@ use Matthewbdaly\SMS\Contracts\Mailer;
 /**
  * Basic mailer interface implementation
  */
-class PHPMailAdapter implements Mailer
+final class PHPMailAdapter implements Mailer
 {
     /**
      * Send email
      *
      * @param string $recipient The recipent's email.
-     * @param string $message   The message.
-     * @return void
+     * @param string $message The message.
      */
-    public function send(string $recipient, string $message)
+    public function send(string $recipient, string $message): void
     {
         mail($recipient, "", $message);
     }

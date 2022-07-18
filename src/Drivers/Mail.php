@@ -4,37 +4,30 @@ declare(strict_types=1);
 
 namespace Matthewbdaly\SMS\Drivers;
 
-use Matthewbdaly\SMS\Contracts\Mailer;
 use Matthewbdaly\SMS\Contracts\Driver;
+use Matthewbdaly\SMS\Contracts\Mailer;
 use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
+use Throwable;
 
 /**
  * Generic mail driver
  */
-class Mail implements Driver
+final class Mail implements Driver
 {
     /**
      * Mailer.
-     *
-     * @var
      */
-    protected $mailer;
+    protected Mailer $mailer;
 
     /**
      * Endpoint.
-     *
-     * @var
      */
-    protected $endpoint;
+    protected string $endpoint;
 
     /**
-     * Constructor.
-     *
      * @param Mailer $mailer The Mailer instance.
-     * @param array  $config The configuration.
-     * @return void
+     * @param array<string, string> $config The configuration.
      * @throws DriverNotConfiguredException Driver not configured correctly.
-     *
      */
     public function __construct(Mailer $mailer, array $config)
     {
@@ -47,8 +40,6 @@ class Mail implements Driver
 
     /**
      * Get driver name.
-     *
-     * @return string
      */
     public function getDriver(): string
     {
@@ -57,8 +48,6 @@ class Mail implements Driver
 
     /**
      * Get endpoint domain.
-     *
-     * @return string
      */
     public function getEndpoint(): string
     {
@@ -68,17 +57,16 @@ class Mail implements Driver
     /**
      * Send the SMS.
      *
-     * @param array $message An array containing the message.
-     *
-     * @return boolean
+     * @param array<string, string> $message An array containing the message.
      */
     public function sendRequest(array $message): bool
     {
         try {
             $recipient = preg_replace('/\s+/', '', $message['to']) . "@" . $this->endpoint;
             $this->mailer->send($recipient, $message['content']);
+
             return true;
-        } catch (\Exception $e) {
+        } catch (Throwable) {
             return false;
         }
     }

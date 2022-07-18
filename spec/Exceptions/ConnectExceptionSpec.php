@@ -1,20 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace spec\Matthewbdaly\SMS\Exceptions;
 
 use Matthewbdaly\SMS\Exceptions\ConnectException;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
-class ConnectExceptionSpec extends ObjectBehavior
+final class ConnectExceptionSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldHaveType(ConnectException::class);
     }
 
-    function it_is_an_exception()
+    public function it_is_an_exception(): void
     {
-        $this->shouldHaveType(\Exception::class);
+        $this->shouldHaveType(\Throwable::class);
     }
 }

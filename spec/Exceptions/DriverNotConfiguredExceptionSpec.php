@@ -1,20 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace spec\Matthewbdaly\SMS\Exceptions;
 
 use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
-class DriverNotConfiguredExceptionSpec extends ObjectBehavior
+final class DriverNotConfiguredExceptionSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldHaveType(DriverNotConfiguredException::class);
     }
 
-    function it_is_an_exception()
+    public function it_is_an_exception(): void
     {
-        $this->shouldHaveType(\Exception::class);
+        $this->shouldHaveType(\Throwable::class);
     }
 }

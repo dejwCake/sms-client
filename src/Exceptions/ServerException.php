@@ -9,6 +9,6 @@ use Exception;
 /**
  * Server exception
  */
-class ServerException extends Exception
+final class ServerException extends Exception
 {
 }

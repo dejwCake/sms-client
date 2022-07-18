@@ -13,8 +13,7 @@ interface Mailer
      * Send email
      *
      * @param string $recipient The recipent's email.
-     * @param string $message   The message.
-     * @return boolean
+     * @param string $message The message.
      */
-    public function send(string $recipient, string $message);
+    public function send(string $recipient, string $message): bool;
 }

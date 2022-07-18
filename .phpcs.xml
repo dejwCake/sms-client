@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+	<description>Coding standard for SMS API integration.</description>
+
+	<config name="ignore_warnings_on_exit" value="1" />
+
+	<arg name="colors" />
+	<arg name="extensions" value="php" />
+	<arg value="p" />
+	<arg value="nsp" />
+	<arg name="cache" value=".phpcs.cache" />
+
+	<config name="php_version" value="80100" />
+
+	<file>src</file>
+	<file>spec</file>
+
+	<rule ref="PSR12" />
+
+	<rule ref="Generic.Formatting.SpaceAfterCast" />
+
+	<!--
+     Extra rules from https://github.com/slevomat/coding-standard
+   -->
+	<rule ref="SlevomatCodingStandard/ruleset.xml">
+		<exclude name="SlevomatCodingStandard.Commenting.DisallowOneLinePropertyDocComment" />
+		<exclude name="SlevomatCodingStandard.Commenting.RequireOneLineDocComment" />
+		<exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces" />
+		<exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation" />
+		<exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions" />
+		<exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants" />
+		<exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly" />
+		<exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions" />
+		<exclude name="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax" />
+		<exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification" />
+		<exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification" />
+		<exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountAfterControlStructure" />
+		<exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountBeforeControlStructure" />
+		<exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison" />
+		<exclude name="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator" />
+		<exclude name="SlevomatCodingStandard.ControlStructures.NewWithoutParentheses" />
+		<exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit" />
+		<exclude name="SlevomatCodingStandard.ControlStructures.DisallowNullSafeObjectOperator" />
+		<exclude name="SlevomatCodingStandard.Operators.DisallowIncrementAndDecrementOperators" />
+		<exclude name="SlevomatCodingStandard.Classes.DisallowLateStaticBindingForConstants" />
+		<exclude name="SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming" />
+		<exclude name="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming" />
+		<exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming" />
+		<exclude name="SlevomatCodingStandard.Classes.SuperfluousErrorNaming" />
+		<exclude name="SlevomatCodingStandard.Classes.SuperfluousTraitNaming" />
+		<exclude name="SlevomatCodingStandard.Classes.DisallowConstructorPropertyPromotion" />
+		<exclude name="SlevomatCodingStandard.Exceptions.DisallowNonCapturingCatch.DisallowedNonCapturingCatch" />
+		<exclude name="SlevomatCodingStandard.Functions.DisallowArrowFunction" />
+		<exclude name="SlevomatCodingStandard.Functions.FunctionLength" />
+		<exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall" />
+		<exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma" />
+		<exclude name="SlevomatCodingStandard.Functions.DisallowNamedArguments" />
+		<exclude name="SlevomatCodingStandard.Files.FunctionLength.FunctionLength" />
+		<exclude name="SlevomatCodingStandard.Numbers.RequireNumericLiteralSeparator" />
+	</rule>
+
+	<!-- For test, do not need traversable type hints -->
+	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification">
+		<exclude-pattern>spec/*</exclude-pattern>
+	</rule>
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification">
+		<exclude-pattern>spec/*</exclude-pattern>
+	</rule>
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification">
+		<exclude-pattern>spec/*</exclude-pattern>
+	</rule>
+
+	<!-- Defines a maximum $nestingLevel and $absoluteNestingLevel for functions. -->
+	<rule ref="Generic.Metrics.NestingLevel">
+		<properties>
+			<property name="nestingLevel" value="6"/>
+			<property name="absoluteNestingLevel" value="10"/>
+		</properties>
+	</rule>
+
+	<!-- Format how declare_strict should looks like -->
+	<rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+		<properties>
+			<property name="declareOnFirstLine" value="false" />
+			<property name="linesCountBeforeDeclare" value="1" />
+			<property name="linesCountAfterDeclare" value="1" />
+			<property name="spacesCountAroundEqualsSign" value="0" />
+		</properties>
+	</rule>
+
+	<!-- Define rule properties for empty lines around classes -->
+	<rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
+		<properties>
+			<property name="linesCountAfterOpeningBrace" value="0" />
+			<property name="linesCountBeforeClosingBrace" value="0" />
+		</properties>
+	</rule>
+
+	<!-- Define rule properties for trait spacing -->
+	<rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing">
+		<properties>
+			<property name="linesCountBeforeFirstUse" value="0" />
+		</properties>
+	</rule>
+
+	<!-- Uses should be searched also in annotations -->
+	<rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
+		<properties>
+			<property name="searchAnnotations" value="true" />
+		</properties>
+	</rule>
+
+	<!-- No new line between use of classes and use of functions and use of constants -->
+	<rule ref="SlevomatCodingStandard.Namespaces.UseSpacing">
+		<properties>
+			<property name="linesCountBeforeFirstUse" value="1" />
+			<property name="linesCountBetweenUseTypes" value="1" />
+			<property name="linesCountAfterLastUse" value="1" />
+		</properties>
+	</rule>
+
+	<!-- If ternary operator will be multiline, do not force it -->
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireTernaryOperator">
+		<properties>
+			<property name="ignoreMultiLine" value="true" />
+		</properties>
+	</rule>
+
+	<!-- If more then 120 chars, require multiline ternary operator -->
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator">
+		<properties>
+			<property name="lineLengthLimit" value="120" />
+		</properties>
+	</rule>
+
+	<!-- in foreach if only key is used, ignore unused value -->
+	<rule ref="SlevomatCodingStandard.Variables.UnusedVariable">
+		<properties>
+			<property name="ignoreUnusedValuesWhenOnlyKeysAreUsedInForeach" value="true" />
+		</properties>
+	</rule>
+
+	<!-- arrow function can be multiline -->
+	<rule ref="SlevomatCodingStandard.Functions.ArrowFunctionDeclaration">
+		<properties>
+			<property name="allowMultiLine" value="true" />
+		</properties>
+	</rule>
+
+	<!-- add functions and global constants to use -->
+	<rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly" >
+		<properties>
+			<property name="searchAnnotations" value="true"/>
+			<property name="allowFallbackGlobalFunctions" value="false"/>
+			<property name="allowFallbackGlobalConstants" value="false"/>
+		</properties>
+	</rule>
+
+	<!-- single line condition, if less than 120 chars length -->
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireSingleLineCondition">
+		<properties>
+			<property name="maxLineLength" value="120"/>
+			<property name="alwaysForSimpleConditions" value="false"/>
+		</properties>
+	</rule>
+
+	<!-- order of blocks in class -->
+	<rule ref="SlevomatCodingStandard.Classes.ClassStructure">
+		<properties>
+			<property name="groups" type="array">
+				<element value="uses"/>
+
+				<!-- Public constants are first but you don't care about the order of protected or private constants -->
+				<element value="public constants"/>
+				<element value="protected constants"/>
+				<element value="private constants"/>
+
+				<element value="enum cases"/>
+
+				<!-- You don't care about the order among the properties. The same can be done with "properties" shortcut -->
+				<element value="public static properties"/>
+				<element value="protected static properties"/>
+				<element value="private static properties"/>
+
+				<element value="public properties"/>
+				<element value="protected properties"/>
+				<element value="private properties"/>
+
+				<element value="constructor"/>
+				<element value="static constructors"/>
+				<element value="destructor"/>
+
+				<element value="public static abstract methods"/>
+				<element value="protected static abstract methods"/>
+
+				<element value="public static final methods"/>
+				<element value="protected static final methods"/>
+
+				<element value="public static methods"/>
+				<element value="protected static methods"/>
+				<element value="private static methods"/>
+
+				<element value="magic methods"/>
+
+				<element value="public abstract methods"/>
+				<element value="protected abstract methods"/>
+
+				<element value="public methods"/>
+				<element value="protected methods"/>
+				<element value="private methods"/>
+
+				<element value="public final methods"/>
+				<element value="protected final methods"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Ignore multiple spaces in annotations -->
+	<rule ref="SlevomatCodingStandard.Whitespaces.DuplicateSpaces">
+		<properties>
+			<property name="ignoreSpacesInAnnotation" value="true"/>
+		</properties>
+	</rule>
+
+	<!-- For test, we prefer to have protected function setUp at top -->
+	<rule ref="SlevomatCodingStandard.Classes.ClassStructure">
+		<exclude-pattern>spec/*</exclude-pattern>
+	</rule>
+
+	<!-- For test in spec, we require snake_case -->
+	<rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+		<exclude-pattern>spec/*</exclude-pattern>
+	</rule>
+
+	<rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+		<properties>
+			<property name="rootNamespaces" type="array">
+				<element key="src" value="Matthewbdaly\SMS"/>
+				<element key="spec" value="spec\Matthewbdaly\SMS"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

@@ -5,35 +5,27 @@ declare(strict_types=1);
 namespace Matthewbdaly\SMS\Drivers;
 
 use GuzzleHttp\ClientInterface as GuzzleClient;
-use Psr\Http\Message\ResponseInterface;
 use Matthewbdaly\SMS\Contracts\Driver;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Null driver for testing.
  */
-class NullDriver implements Driver
+final class NullDriver implements Driver
 {
     /**
      * Guzzle client.
-     *
-     * @var
      */
-    protected $client;
+    protected GuzzleClient $client;
 
     /**
      * Guzzle response.
-     *
-     * @var
      */
-    protected $response;
+    protected ResponseInterface $response;
 
     /**
-     * Constructor.
-     *
-     * @param GuzzleClient      $client   The Guzzle Client instance.
+     * @param GuzzleClient $client The Guzzle Client instance.
      * @param ResponseInterface $response The response instance.
-     *
-     * @return void
      */
     public function __construct(GuzzleClient $client, ResponseInterface $response)
     {
@@ -43,8 +35,6 @@ class NullDriver implements Driver
 
     /**
      * Get driver name.
-     *
-     * @return string
      */
     public function getDriver(): string
     {
@@ -53,8 +43,6 @@ class NullDriver implements Driver
 
     /**
      * Get endpoint URL.
-     *
-     * @return string
      */
     public function getEndpoint(): string
     {
@@ -64,9 +52,8 @@ class NullDriver implements Driver
     /**
      * Send the SMS.
      *
-     * @param array $message An array containing the message.
-     *
-     * @return boolean
+     * @param array<string, string> $message An array containing the message.
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     public function sendRequest(array $message): bool
     {
