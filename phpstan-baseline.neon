@@ -1,0 +1,196 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\ClientSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 1
+			path: spec/ClientSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\ClientSpec\\:\\:send\\(\\)\\.$#"
+			count: 1
+			path: spec/ClientSpec.php
+
+		-
+			message: "#^Cannot call method willReturn\\(\\) on bool\\.$#"
+			count: 1
+			path: spec/ClientSpec.php
+
+		-
+			message: "#^Cannot call method willReturn\\(\\) on string\\.$#"
+			count: 1
+			path: spec/ClientSpec.php
+
+		-
+			message: "#^Call to an undefined method Aws\\\\Result\\:\\:shouldBeCalled\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/AwsSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\AwsSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 2
+			path: spec/Drivers/AwsSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\AwsSpec\\:\\:getEndpoint\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/AwsSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\AwsSpec\\:\\:sendRequest\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/AwsSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\ClockworkSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/ClockworkSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\ClockworkSpec\\:\\:getEndpoint\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/ClockworkSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\ClockworkSpec\\:\\:sendRequest\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/ClockworkSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\LogSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/LogSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\LogSpec\\:\\:getEndpoint\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/LogSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\LogSpec\\:\\:sendRequest\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/LogSpec.php
+
+		-
+			message: "#^Cannot call method shouldHaveBeenCalled\\(\\) on void\\.$#"
+			count: 1
+			path: spec/Drivers/LogSpec.php
+
+		-
+			message: "#^Result of method Psr\\\\Log\\\\LoggerInterface\\:\\:info\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: spec/Drivers/LogSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\MailSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/MailSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\MailSpec\\:\\:getEndpoint\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/MailSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\MailSpec\\:\\:sendRequest\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/MailSpec.php
+
+		-
+			message: "#^Cannot call method shouldBeCalled\\(\\) on bool\\.$#"
+			count: 1
+			path: spec/Drivers/MailSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NexmoSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/NexmoSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NexmoSpec\\:\\:getEndpoint\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/NexmoSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NexmoSpec\\:\\:sendRequest\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/NexmoSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NullDriverSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/NullDriverSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NullDriverSpec\\:\\:getEndpoint\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/NullDriverSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NullDriverSpec\\:\\:sendRequest\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/NullDriverSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\O2SKSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/O2SKSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\O2SKSpec\\:\\:getEndpoint\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/O2SKSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\O2SKSpec\\:\\:sendRequest\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/O2SKSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\RequestBinSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/RequestBinSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\RequestBinSpec\\:\\:getEndpoint\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/RequestBinSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\RequestBinSpec\\:\\:sendRequest\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/RequestBinSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TextLocalSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/TextLocalSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TextLocalSpec\\:\\:getEndpoint\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/TextLocalSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TextLocalSpec\\:\\:sendRequest\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/TextLocalSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TwilioSpec\\:\\:getDriver\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/TwilioSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TwilioSpec\\:\\:getEndpoint\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/TwilioSpec.php
+
+		-
+			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TwilioSpec\\:\\:sendRequest\\(\\)\\.$#"
+			count: 1
+			path: spec/Drivers/TwilioSpec.php
+
+		-
+			message: "#^Call to an undefined method GuzzleHttp\\\\ClientInterface\\:\\:post\\(\\)\\.$#"
+			count: 1
+			path: src/Drivers/O2SK.php

@@ -17,8 +17,8 @@ final class PHPMailAdapter implements Mailer
      * @param string $recipient The recipent's email.
      * @param string $message The message.
      */
-    public function send(string $recipient, string $message): void
+    public function send(string $recipient, string $message): bool
     {
-        mail($recipient, "", $message);
+        return mail($recipient, "", $message);
     }
 }
