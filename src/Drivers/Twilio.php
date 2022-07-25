@@ -53,11 +53,11 @@ final class Twilio implements Driver
     {
         $this->client = $client;
         $this->response = $response;
-        if (!array_key_exists('account_id', $config) || !array_key_exists('api_token', $config)) {
+        if (!array_key_exists('accountId', $config) || !array_key_exists('apiToken', $config)) {
             throw new DriverNotConfiguredException();
         }
-        $this->accountId = $config['account_id'];
-        $this->apiToken = $config['api_token'];
+        $this->accountId = $config['accountId'];
+        $this->apiToken = $config['apiToken'];
     }
 
     /**

@@ -49,9 +49,9 @@ final class AwsSpec extends ObjectBehavior
     public function it_can_be_constructed_with_config_only(): void
     {
         $config = [
-            'api_key' => 'foo',
-            'api_secret' => 'bar',
-            'api_region' => 'ap-southeast-2',
+            'apiKey' => 'foo',
+            'apiSecret' => 'bar',
+            'apiRegion' => 'ap-southeast-2',
         ];
         $this->beConstructedWith($config);
         $this->getDriver()->shouldReturn('Aws');

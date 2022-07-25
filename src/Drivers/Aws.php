@@ -29,18 +29,18 @@ final class Aws implements Driver
     {
         if (!$sns) {
             if (
-                !array_key_exists('api_key', $config)
-                || !array_key_exists('api_secret', $config)
-                || !array_key_exists('api_region', $config)
+                !array_key_exists('apiKey', $config)
+                || !array_key_exists('apiSecret', $config)
+                || !array_key_exists('apiRegion', $config)
             ) {
                 throw new DriverNotConfiguredException();
             }
             $params = [
                 'credentials' => [
-                    'key' => $config['api_key'],
-                    'secret' => $config['api_secret'],
+                    'key' => $config['apiKey'],
+                    'secret' => $config['apiSecret'],
                 ],
-                'region' => $config['api_region'],
+                'region' => $config['apiRegion'],
                 'version' => 'latest',
             ];
             $sns = new SnsClient($params);

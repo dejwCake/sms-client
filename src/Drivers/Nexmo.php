@@ -58,11 +58,11 @@ final class Nexmo implements Driver
     {
         $this->client = $client;
         $this->response = $response;
-        if (!array_key_exists('api_key', $config) || !array_key_exists('api_secret', $config)) {
+        if (!array_key_exists('apiKey', $config) || !array_key_exists('apiSecret', $config)) {
             throw new DriverNotConfiguredException();
         }
-        $this->apiKey = $config['api_key'];
-        $this->apiSecret = $config['api_secret'];
+        $this->apiKey = $config['apiKey'];
+        $this->apiSecret = $config['apiSecret'];
     }
 
     /**

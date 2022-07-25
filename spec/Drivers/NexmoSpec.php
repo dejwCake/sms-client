@@ -23,8 +23,8 @@ final class NexmoSpec extends ObjectBehavior
     public function let(GuzzleInterface $client, ResponseInterface $response): void
     {
         $config = [
-            'api_key' => 'foo',
-            'api_secret' => 'bar',
+            'apiKey' => 'foo',
+            'apiSecret' => 'bar',
         ];
         $this->beConstructedWith($client, $response, $config);
     }
@@ -42,7 +42,7 @@ final class NexmoSpec extends ObjectBehavior
     public function it_throws_exception_if_no_api_key(GuzzleInterface $client, ResponseInterface $response): void
     {
         $config = [
-            'api_secret' => 'bar',
+            'apiSecret' => 'bar',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during(
@@ -54,7 +54,7 @@ final class NexmoSpec extends ObjectBehavior
     public function it_throws_exception_if_no_api_secret(GuzzleInterface $client, ResponseInterface $response): void
     {
         $config = [
-            'api_key' => 'foo',
+            'apiKey' => 'foo',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during(
@@ -88,8 +88,8 @@ final class NexmoSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key' => 'MY_DUMMY_API_KEY',
-            'api_secret' => 'MY_DUMMY_API_SECRET',
+            'apiKey' => 'MY_DUMMY_API_KEY',
+            'apiSecret' => 'MY_DUMMY_API_SECRET',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->sendRequest($msg)->shouldReturn(true);
@@ -110,8 +110,8 @@ final class NexmoSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key' => 'MY_DUMMY_API_KEY',
-            'api_secret' => 'MY_DUMMY_API_SECRET',
+            'apiKey' => 'MY_DUMMY_API_KEY',
+            'apiSecret' => 'MY_DUMMY_API_SECRET',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ClientException')->during('sendRequest', [$msg]);
@@ -132,8 +132,8 @@ final class NexmoSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key' => 'MY_DUMMY_API_KEY',
-            'api_secret' => 'MY_DUMMY_API_SECRET',
+            'apiKey' => 'MY_DUMMY_API_KEY',
+            'apiSecret' => 'MY_DUMMY_API_SECRET',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ServerException')->during('sendRequest', [$msg]);
@@ -154,8 +154,8 @@ final class NexmoSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key' => 'MY_DUMMY_API_KEY',
-            'api_secret' => 'MY_DUMMY_API_SECRET',
+            'apiKey' => 'MY_DUMMY_API_KEY',
+            'apiSecret' => 'MY_DUMMY_API_SECRET',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\RequestException')->during('sendRequest', [$msg]);
@@ -176,8 +176,8 @@ final class NexmoSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key' => 'MY_DUMMY_API_KEY',
-            'api_secret' => 'MY_DUMMY_API_SECRET',
+            'apiKey' => 'MY_DUMMY_API_KEY',
+            'apiSecret' => 'MY_DUMMY_API_SECRET',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ConnectException')->during('sendRequest', [$msg]);

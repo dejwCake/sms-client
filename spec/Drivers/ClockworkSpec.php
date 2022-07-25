@@ -23,7 +23,7 @@ final class ClockworkSpec extends ObjectBehavior
     public function let(GuzzleInterface $client, ResponseInterface $response): void
     {
         $config = [
-            'api_key' => 'blah',
+            'apiKey' => 'blah',
         ];
         $this->beConstructedWith($client, $response, $config);
     }
@@ -73,7 +73,7 @@ final class ClockworkSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key' => 'MY_DUMMY_API_KEY',
+            'apiKey' => 'MY_DUMMY_API_KEY',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->sendRequest($msg)->shouldReturn(true);
@@ -93,7 +93,7 @@ final class ClockworkSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key' => 'MY_DUMMY_API_KEY',
+            'apiKey' => 'MY_DUMMY_API_KEY',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ClientException')->during('sendRequest', [$msg]);
@@ -113,7 +113,7 @@ final class ClockworkSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key' => 'MY_DUMMY_API_KEY',
+            'apiKey' => 'MY_DUMMY_API_KEY',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ServerException')->during('sendRequest', [$msg]);
@@ -133,7 +133,7 @@ final class ClockworkSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key' => 'MY_DUMMY_API_KEY',
+            'apiKey' => 'MY_DUMMY_API_KEY',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\RequestException')->during('sendRequest', [$msg]);
@@ -153,7 +153,7 @@ final class ClockworkSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'api_key' => 'MY_DUMMY_API_KEY',
+            'apiKey' => 'MY_DUMMY_API_KEY',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ConnectException')->during('sendRequest', [$msg]);

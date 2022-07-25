@@ -53,10 +53,10 @@ final class TextLocal implements Driver
     {
         $this->client = $client;
         $this->response = $response;
-        if (!array_key_exists('api_key', $config)) {
+        if (!array_key_exists('apiKey', $config)) {
             throw new DriverNotConfiguredException();
         }
-        $this->apiKey = $config['api_key'];
+        $this->apiKey = $config['apiKey'];
     }
 
     /**

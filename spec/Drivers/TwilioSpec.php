@@ -23,8 +23,8 @@ final class TwilioSpec extends ObjectBehavior
     public function let(GuzzleInterface $client, ResponseInterface $response): void
     {
         $config = [
-            'account_id' => 'MY_TWILIO_ACCOUNT_ID',
-            'api_token' => 'MY_TWILIO_API_TOKEN',
+            'accountId' => 'MY_TWILIO_ACCOUNT_ID',
+            'apiToken' => 'MY_TWILIO_API_TOKEN',
         ];
         $this->beConstructedWith($client, $response, $config);
     }
@@ -44,7 +44,7 @@ final class TwilioSpec extends ObjectBehavior
         ResponseInterface $response,
     ): void {
         $config = [
-            'account_id' => 'MY_TWILIO_ACCOUNT_ID',
+            'accountId' => 'MY_TWILIO_ACCOUNT_ID',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during(
@@ -58,7 +58,7 @@ final class TwilioSpec extends ObjectBehavior
         ResponseInterface $response,
     ): void {
         $config = [
-            'api_token' => 'MY_TWILIO_API_TOKEN',
+            'apiToken' => 'MY_TWILIO_API_TOKEN',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException')->during(
@@ -94,8 +94,8 @@ final class TwilioSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'account_id' => 'MY_TWILIO_ACCOUNT_ID',
-            'api_token' => 'MY_TWILIO_API_TOKEN',
+            'accountId' => 'MY_TWILIO_ACCOUNT_ID',
+            'apiToken' => 'MY_TWILIO_API_TOKEN',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->sendRequest($msg)->shouldReturn(true);
@@ -116,8 +116,8 @@ final class TwilioSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'account_id' => 'MY_TWILIO_ACCOUNT_ID',
-            'api_token' => 'MY_TWILIO_API_TOKEN',
+            'accountId' => 'MY_TWILIO_ACCOUNT_ID',
+            'apiToken' => 'MY_TWILIO_API_TOKEN',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ClientException')->during('sendRequest', [$msg]);
@@ -138,8 +138,8 @@ final class TwilioSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'account_id' => 'MY_TWILIO_ACCOUNT_ID',
-            'api_token' => 'MY_TWILIO_API_TOKEN',
+            'accountId' => 'MY_TWILIO_ACCOUNT_ID',
+            'apiToken' => 'MY_TWILIO_API_TOKEN',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ServerException')->during('sendRequest', [$msg]);
@@ -160,8 +160,8 @@ final class TwilioSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'account_id' => 'MY_TWILIO_ACCOUNT_ID',
-            'api_token' => 'MY_TWILIO_API_TOKEN',
+            'accountId' => 'MY_TWILIO_ACCOUNT_ID',
+            'apiToken' => 'MY_TWILIO_API_TOKEN',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\RequestException')->during('sendRequest', [$msg]);
@@ -182,8 +182,8 @@ final class TwilioSpec extends ObjectBehavior
         $handler = HandlerStack::create($mock);
         $client = new GuzzleClient(['handler' => $handler]);
         $config = [
-            'account_id' => 'MY_TWILIO_ACCOUNT_ID',
-            'api_token' => 'MY_TWILIO_API_TOKEN',
+            'accountId' => 'MY_TWILIO_ACCOUNT_ID',
+            'apiToken' => 'MY_TWILIO_API_TOKEN',
         ];
         $this->beConstructedWith($client, $response, $config);
         $this->shouldThrow('Matthewbdaly\SMS\Exceptions\ConnectException')->during('sendRequest', [$msg]);
