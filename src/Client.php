@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS;
+namespace DejwCake\SmsClient;
 
-use Matthewbdaly\SMS\Contracts\Client as ClientContract;
-use Matthewbdaly\SMS\Contracts\Driver;
+use DejwCake\SmsClient\Contracts\Client as ClientContract;
+use DejwCake\SmsClient\Contracts\Driver;
 
 /**
  * SMS client.

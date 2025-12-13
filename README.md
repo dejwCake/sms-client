@@ -1,9 +1,17 @@
 # sms-client
-[![Build Status](https://travis-ci.org/matthewbdaly/sms-client.svg?branch=master)](https://travis-ci.org/matthewbdaly/sms-client)
-
 A generic SMS client library. Supports multiple swappable drivers, so that you're never tied to just one provider.
 
 This library is aimed squarely at sending SMS messages only, and I don't plan to add support for other functionality. The idea is to create one library that should be able to work with any provider that has a driver for the purpose of sending SMS messages.
+
+Fork note
+---------
+
+This project is a fork of `Matthewbdaly\SMS`. It is maintained and improved by David Běhal (`DejwCake`).
+
+Namespace change
+----------------
+
+The library namespace has been updated from `Matthewbdaly\SMS` to `DejwCake\SmsClient`. Backward compatibility with the old namespace has been removed; please update your imports accordingly.
 
 Drivers
 -------
@@ -34,12 +42,12 @@ Example Usage
 ```php
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Response;
-use Matthewbdaly\SMS\Drivers\Null;
-use Matthewbdaly\SMS\Client;
+use DejwCake\SmsClient\Drivers\NullDriver;
+use DejwCake\SmsClient\Client;
 
 $guzzle = new GuzzleClient;
 $resp = new Response;
-$driver = new Null($guzzle, $resp);
+$driver = new NullDriver($guzzle, $resp);
 $client = new Client($driver);
 $msg = [
     'to'      => '+44 01234 567890',
@@ -51,8 +59,8 @@ $client->send($msg);
 **Log**
 
 ```php
-use Matthewbdaly\SMS\Drivers\Log;
-use Matthewbdaly\SMS\Client;
+use DejwCake\SmsClient\Drivers\Log;
+use DejwCake\SmsClient\Client;
 use Psr\Log\LoggerInterface;
 
 $driver = new Log($logger); // $logger should be an implementation of Psr\Log\LoggerInterface
@@ -70,8 +78,8 @@ $client->send($msg);
 ```php
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Response;
-use Matthewbdaly\SMS\Drivers\RequestBin;
-use Matthewbdaly\SMS\Client;
+use DejwCake\SmsClient\Drivers\RequestBin;
+use DejwCake\SmsClient\Client;
 
 $guzzle = new GuzzleClient;
 $resp = new Response;
@@ -91,8 +99,8 @@ $client->send($msg);
 ```php
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Response;
-use Matthewbdaly\SMS\Drivers\Clockwork;
-use Matthewbdaly\SMS\Client;
+use DejwCake\SmsClient\Drivers\Clockwork;
+use DejwCake\SmsClient\Client;
 
 $guzzle = new GuzzleClient;
 $resp = new Response;
@@ -112,8 +120,8 @@ $client->send($msg);
 ```php
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Response;
-use Matthewbdaly\SMS\Drivers\Nexmo;
-use Matthewbdaly\SMS\Client;
+use DejwCake\SmsClient\Drivers\Nexmo;
+use DejwCake\SmsClient\Client;
 
 $guzzle = new GuzzleClient;
 $resp = new Response;
@@ -133,8 +141,8 @@ $client->send($msg);
 **AWS SNS**
 
 ```php
-use Matthewbdaly\SMS\Client;
-use Matthewbdaly\SMS\Drivers\Aws;
+use DejwCake\SmsClient\Client;
+use DejwCake\SmsClient\Drivers\Aws;
 
 $config = [
     'api_key'    => 'foo',
@@ -154,14 +162,14 @@ $client->send($msg);
 **Mail**
 
 ```php
-use Matthewbdaly\SMS\Client;
-use Matthewbdaly\SMS\Drivers\Mail;
-use Matthewbdaly\SMS\Contracts\Mailer;
+use DejwCake\SmsClient\Client;
+use DejwCake\SmsClient\Drivers\Mail;
+use DejwCake\SmsClient\Contracts\Mailer;
 
 $config = [
     'domain' => 'my.sms-gateway.com'
 ];
-$driver = new Mail($config);
+$driver = new Mail($mailer, $config);
 $client = new Client($driver);
 $msg = [
     'to'      => '+44 01234 567890',
@@ -175,8 +183,8 @@ $client->send($msg);
 ```php
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Response;
-use Matthewbdaly\SMS\Drivers\TextLocal;
-use Matthewbdaly\SMS\Client;
+use DejwCake\SmsClient\Drivers\TextLocal;
+use DejwCake\SmsClient\Client;
 
 $guzzle = new GuzzleClient;
 $resp = new Response;
@@ -197,8 +205,8 @@ $client->send($msg);
 ```php
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Response;
-use Matthewbdaly\SMS\Drivers\Twilio;
-use Matthewbdaly\SMS\Client;
+use DejwCake\SmsClient\Drivers\Twilio;
+use DejwCake\SmsClient\Client;
 
 $guzzle = new GuzzleClient;
 $resp = new Response;
@@ -219,8 +227,8 @@ $client->send($msg);
 
 ```php
 use GuzzleHttp\Client as GuzzleClient;
-use Matthewbdaly\SMS\Drivers\O2SK;
-use Matthewbdaly\SMS\Client;
+use DejwCake\SmsClient\Drivers\O2SK;
+use DejwCake\SmsClient\Client;
 
 $driver = new O2SK(new GuzzleClient, [
     'apiKey' => 'MY_O2SK_API_KEY',
@@ -239,21 +247,21 @@ $client->send($msg);
 Mail driver
 -----------
 
-I have implemented a mail driver at `Matthewbdaly\SMS\Drivers\Mail`, but it's very basic and may not work with a lot of mail-to-SMS gateways out of the box. It accepts an instance of the `Matthewbdaly\SMS\Contracts\Mailer` interface as the first argument, and the config array as the second.
+I have implemented a mail driver at `DejwCake\SmsClient\Drivers\Mail`, but it's very basic and may not work with a lot of mail-to-SMS gateways out of the box. It accepts an instance of the `DejwCake\SmsClient\Contracts\Mailer` interface as the first argument, and the config array as the second.
 
-I've included the class `Matthewbdaly\SMS\PHPMailAdapter` in the library as a very basic implementation of the mailer interface, but it's deliberately very basic - it's just a very thin wrapper around the PHP `mail()` function. You will almost certainly want to create your own implementation for your own use case - for instance, if you're using Laravel you might create a wrapper class for the `Mail` facade.
+I've included the class `DejwCake\SmsClient\PHPMailAdapter` in the library as a very basic implementation of the mailer interface, but it's deliberately very basic - it's just a very thin wrapper around the PHP `mail()` function. You will almost certainly want to create your own implementation for your own use case - for instance, if you're using Laravel you might create a wrapper class for the `Mail` facade.
 
-The mail driver will nearly always be slower and less reliable than the HTTP-based ones, so if you have to integrate with a provider that doesn't yet have a driver, but does have a REST API, you're probably better off creating an API driver for it. If you do need to work with a mail-to-SMS gateway, you're quite likely to find that you need to extend `Matthewbdaly\SMS\Drivers\Mail` to amend the functionality.
+The mail driver will nearly always be slower and less reliable than the HTTP-based ones, so if you have to integrate with a provider that doesn't yet have a driver, but does have a REST API, you're probably better off creating an API driver for it. If you do need to work with a mail-to-SMS gateway, you're quite likely to find that you need to extend `DejwCake\SmsClient\Drivers\Mail` to amend the functionality.
 
 Laravel and Lumen integration
 -------------------
 
-Using Laravel or Lumen? You probably want to use [my integration package](https://packagist.org/packages/matthewbdaly/laravel-sms) rather than this one, since that includes a service provider, as well as the `SMS` facade and easier configuration.
+Using Laravel or Lumen? You probably want to use [my integration package](https://packagist.org/packages/dejwcake/laravel-sms) rather than this one, since that includes a service provider, as well as the `SMS` facade and easier configuration.
 
 Creating your own driver
 ------------------------
 
-It's easy to create your own driver - just implement the `Matthewbdaly\SMS\Contracts\Driver` interface. You can use whatever method is most appropriate for sending the SMS - for instance, if your provider has a mail-to-SMS gateway, you can happily use Swiftmailer or PHPMailer in your driver to send emails, or if they have a REST API you can use Guzzle.
+It's easy to create your own driver - just implement the `DejwCake\SmsClient\Contracts\Driver` interface. You can use whatever method is most appropriate for sending the SMS - for instance, if your provider has a mail-to-SMS gateway, you can happily use Swiftmailer or PHPMailer in your driver to send emails, or if they have a REST API you can use Guzzle.
 
 You can pass any configuration options required in the `config` array in the constructor of the driver. Please ensure that your driver has tests using PHPUnit and that it meets the coding standard (the package includes a PHP Codesniffer configuration for that reason).
 

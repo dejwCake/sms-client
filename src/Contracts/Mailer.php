@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Contracts;
+namespace DejwCake\SmsClient\Contracts;
 
 /**
  * Basic mailer interface

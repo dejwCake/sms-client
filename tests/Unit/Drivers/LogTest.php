@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Tests\Unit\Drivers;
+namespace DejwCake\SmsClient\Tests\Unit\Drivers;
 
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Drivers\Log;
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Drivers\Log;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;

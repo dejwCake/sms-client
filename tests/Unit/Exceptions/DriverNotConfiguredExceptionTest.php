@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Tests\Unit\Exceptions;
+namespace DejwCake\SmsClient\Tests\Unit\Exceptions;
 
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
 use PHPUnit\Framework\TestCase;
+use Throwable;
 
 final class DriverNotConfiguredExceptionTest extends TestCase
 {
@@ -18,6 +19,6 @@ final class DriverNotConfiguredExceptionTest extends TestCase
     public function testIsThrowable(): void
     {
         $ex = new DriverNotConfiguredException();
-        self::assertInstanceOf(\Throwable::class, $ex);
+        self::assertInstanceOf(Throwable::class, $ex);
     }
 }

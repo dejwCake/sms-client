@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Tests\Unit\Drivers;
+namespace DejwCake\SmsClient\Tests\Unit\Drivers;
 
 use Aws\Sns\SnsClient;
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Drivers\Aws;
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
-use Matthewbdaly\SMS\Tests\Support\SpySnsClient;
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Drivers\Aws;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Tests\Support\SpySnsClient;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 

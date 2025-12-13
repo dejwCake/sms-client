@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Exceptions\ClientException;
+use DejwCake\SmsClient\Exceptions\ConnectException;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Exceptions\RequestException;
+use DejwCake\SmsClient\Exceptions\ServerException;
 use GuzzleHttp\ClientInterface as GuzzleClient;
 use GuzzleHttp\Exception\ClientException as GuzzleClientException;
 use GuzzleHttp\Exception\ConnectException as GuzzleConnectException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException as GuzzleRequestException;
 use GuzzleHttp\Exception\ServerException as GuzzleServerException;
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Exceptions\ClientException;
-use Matthewbdaly\SMS\Exceptions\ConnectException;
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
-use Matthewbdaly\SMS\Exceptions\RequestException;
-use Matthewbdaly\SMS\Exceptions\ServerException;
 use Psr\Http\Message\ResponseInterface;
 
 /**

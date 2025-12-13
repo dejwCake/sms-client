@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
+use DejwCake\SmsClient\Contracts\Driver;
 use GuzzleHttp\ClientInterface as GuzzleClient;
-use Matthewbdaly\SMS\Contracts\Driver;
 use Psr\Http\Message\ResponseInterface;
 
 /**

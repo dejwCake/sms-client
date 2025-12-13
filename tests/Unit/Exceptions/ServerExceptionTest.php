@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Tests\Unit\Exceptions;
+namespace DejwCake\SmsClient\Tests\Unit\Exceptions;
 
-use Matthewbdaly\SMS\Exceptions\ServerException;
+use DejwCake\SmsClient\Exceptions\ServerException;
 use PHPUnit\Framework\TestCase;
+use Throwable;
 
 final class ServerExceptionTest extends TestCase
 {
@@ -18,6 +19,6 @@ final class ServerExceptionTest extends TestCase
     public function testIsThrowable(): void
     {
         $ex = new ServerException();
-        self::assertInstanceOf(\Throwable::class, $ex);
+        self::assertInstanceOf(Throwable::class, $ex);
     }
 }

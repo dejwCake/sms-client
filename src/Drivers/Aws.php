@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
 use Aws\Sns\Exception\SnsException;
 use Aws\Sns\SnsClient;
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Exceptions\ClientException;
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Exceptions\ClientException;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
 
 /**
  * Driver for AWS SNS.

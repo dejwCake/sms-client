@@ -8,14 +8,14 @@
     ],
     "authors": [
         {
-            "name": "Matthew Daly",
-            "email": "matthewbdaly@gmail.com",
-            "role": "Original Developer"
-        },
-        {
             "name": "David Běhal",
             "email": "behal.david@gmail.com",
             "role": "Fork Developer"
+        },
+        {
+            "name": "Matthew Daly",
+            "email": "matthewbdaly@gmail.com",
+            "role": "Original Developer"
         }
     ],
     "require": {
@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Matthewbdaly\\SMS\\": "src/"
+            "DejwCake\\SmsClient\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Matthewbdaly\\SMS\\Tests\\": "tests/"
+            "DejwCake\\SmsClient\\Tests\\": "tests/"
         }
     }
 }

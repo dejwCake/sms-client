@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Contracts\Mailer;
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Contracts\Mailer;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
 use Throwable;
 
 /**

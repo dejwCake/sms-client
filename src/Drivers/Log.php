@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
-use Matthewbdaly\SMS\Contracts\Driver;
+use DejwCake\SmsClient\Contracts\Driver;
 use Psr\Log\LoggerInterface;
 
 /**

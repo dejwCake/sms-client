@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Tests\Unit\Drivers;
+namespace DejwCake\SmsClient\Tests\Unit\Drivers;
 
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Drivers\NullDriver;
 use GuzzleHttp\ClientInterface as GuzzleInterface;
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Drivers\NullDriver;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

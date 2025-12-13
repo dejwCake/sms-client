@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Tests\Unit;
+namespace DejwCake\SmsClient\Tests\Unit;
 
-use Matthewbdaly\SMS\Client;
-use Matthewbdaly\SMS\Contracts\Client as ClientContract;
-use Matthewbdaly\SMS\Contracts\Driver;
+use DejwCake\SmsClient\Client;
+use DejwCake\SmsClient\Contracts\Client as ClientContract;
+use DejwCake\SmsClient\Contracts\Driver;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 

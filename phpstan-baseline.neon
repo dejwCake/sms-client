@@ -7,193 +7,193 @@ parameters:
 			path: src/Drivers/O2SK.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Client'' and Matthewbdaly\\SMS\\Client will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Client'' and DejwCake\\SmsClient\\Client will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/ClientTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Client'' and Matthewbdaly\\SMS\\Client will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Client'' and DejwCake\\SmsClient\\Client will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/ClientTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Driver'' and Matthewbdaly\\SMS\\Drivers\\Aws will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Aws will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/AwsTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Drivers\\\\Aws'' and Matthewbdaly\\SMS\\Drivers\\Aws will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Aws'' and DejwCake\\SmsClient\\Drivers\\Aws will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/AwsTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Driver'' and Matthewbdaly\\SMS\\Drivers\\Clockwork will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Clockwork will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/ClockworkTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Drivers\\\\Clockwork'' and Matthewbdaly\\SMS\\Drivers\\Clockwork will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Clockwork'' and DejwCake\\SmsClient\\Drivers\\Clockwork will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/ClockworkTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Driver'' and Matthewbdaly\\SMS\\Drivers\\Log will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Log will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/LogTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Drivers\\\\Log'' and Matthewbdaly\\SMS\\Drivers\\Log will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Log'' and DejwCake\\SmsClient\\Drivers\\Log will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/LogTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Driver'' and Matthewbdaly\\SMS\\Drivers\\Mail will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Mail will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/MailTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Drivers\\\\Mail'' and Matthewbdaly\\SMS\\Drivers\\Mail will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Mail'' and DejwCake\\SmsClient\\Drivers\\Mail will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/MailTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Driver'' and Matthewbdaly\\SMS\\Drivers\\Nexmo will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Nexmo will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/NexmoTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Drivers\\\\Nexmo'' and Matthewbdaly\\SMS\\Drivers\\Nexmo will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Nexmo'' and DejwCake\\SmsClient\\Drivers\\Nexmo will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/NexmoTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Driver'' and Matthewbdaly\\SMS\\Drivers\\NullDriver will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\NullDriver will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/NullDriverTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Drivers\\\\NullDriver'' and Matthewbdaly\\SMS\\Drivers\\NullDriver will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\NullDriver'' and DejwCake\\SmsClient\\Drivers\\NullDriver will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/NullDriverTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Driver'' and Matthewbdaly\\SMS\\Drivers\\O2SK will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\O2SK will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/O2SKTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Drivers\\\\O2SK'' and Matthewbdaly\\SMS\\Drivers\\O2SK will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\O2SK'' and DejwCake\\SmsClient\\Drivers\\O2SK will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/O2SKTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Driver'' and Matthewbdaly\\SMS\\Drivers\\RequestBin will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\RequestBin will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/RequestBinTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Drivers\\\\RequestBin'' and Matthewbdaly\\SMS\\Drivers\\RequestBin will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\RequestBin'' and DejwCake\\SmsClient\\Drivers\\RequestBin will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/RequestBinTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Driver'' and Matthewbdaly\\SMS\\Drivers\\TextLocal will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\TextLocal will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/TextLocalTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Drivers\\\\TextLocal'' and Matthewbdaly\\SMS\\Drivers\\TextLocal will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\TextLocal'' and DejwCake\\SmsClient\\Drivers\\TextLocal will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/TextLocalTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Contracts\\\\Driver'' and Matthewbdaly\\SMS\\Drivers\\Twilio will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Twilio will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/TwilioTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Drivers\\\\Twilio'' and Matthewbdaly\\SMS\\Drivers\\Twilio will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Twilio'' and DejwCake\\SmsClient\\Drivers\\Twilio will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Drivers/TwilioTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Exceptions\\\\ClientException'' and Matthewbdaly\\SMS\\Exceptions\\ClientException will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Exceptions\\\\ClientException'' and DejwCake\\SmsClient\\Exceptions\\ClientException will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Exceptions/ClientExceptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and Matthewbdaly\\SMS\\Exceptions\\ClientException will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and DejwCake\\SmsClient\\Exceptions\\ClientException will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Exceptions/ClientExceptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Exceptions\\\\ConnectException'' and Matthewbdaly\\SMS\\Exceptions\\ConnectException will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Exceptions\\\\ConnectException'' and DejwCake\\SmsClient\\Exceptions\\ConnectException will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Exceptions/ConnectExceptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and Matthewbdaly\\SMS\\Exceptions\\ConnectException will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and DejwCake\\SmsClient\\Exceptions\\ConnectException will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Exceptions/ConnectExceptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Exceptions\\\\DriverNotConfiguredException'' and Matthewbdaly\\SMS\\Exceptions\\DriverNotConfiguredException will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Exceptions\\\\DriverNotConfiguredException'' and DejwCake\\SmsClient\\Exceptions\\DriverNotConfiguredException will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Exceptions/DriverNotConfiguredExceptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and Matthewbdaly\\SMS\\Exceptions\\DriverNotConfiguredException will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and DejwCake\\SmsClient\\Exceptions\\DriverNotConfiguredException will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Exceptions/DriverNotConfiguredExceptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Exceptions\\\\RequestException'' and Matthewbdaly\\SMS\\Exceptions\\RequestException will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Exceptions\\\\RequestException'' and DejwCake\\SmsClient\\Exceptions\\RequestException will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Exceptions/RequestExceptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and Matthewbdaly\\SMS\\Exceptions\\RequestException will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and DejwCake\\SmsClient\\Exceptions\\RequestException will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Exceptions/RequestExceptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Matthewbdaly\\\\SMS\\\\Exceptions\\\\ServerException'' and Matthewbdaly\\SMS\\Exceptions\\ServerException will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Exceptions\\\\ServerException'' and DejwCake\\SmsClient\\Exceptions\\ServerException will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Exceptions/ServerExceptionTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and Matthewbdaly\\SMS\\Exceptions\\ServerException will always evaluate to true\.$#'
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and DejwCake\\SmsClient\\Exceptions\\ServerException will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/Unit/Exceptions/ServerExceptionTest.php

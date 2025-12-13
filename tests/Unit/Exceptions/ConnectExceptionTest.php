@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Tests\Unit\Exceptions;
+namespace DejwCake\SmsClient\Tests\Unit\Exceptions;
 
-use Matthewbdaly\SMS\Exceptions\ConnectException;
+use DejwCake\SmsClient\Exceptions\ConnectException;
 use PHPUnit\Framework\TestCase;
+use Throwable;
 
 final class ConnectExceptionTest extends TestCase
 {
@@ -18,6 +19,6 @@ final class ConnectExceptionTest extends TestCase
     public function testIsThrowable(): void
     {
         $ex = new ConnectException();
-        self::assertInstanceOf(\Throwable::class, $ex);
+        self::assertInstanceOf(Throwable::class, $ex);
     }
 }

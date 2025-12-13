@@ -2,8 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Tests\Unit\Drivers;
+namespace DejwCake\SmsClient\Tests\Unit\Drivers;
 
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Drivers\O2SK;
+use DejwCake\SmsClient\Exceptions\ClientException;
+use DejwCake\SmsClient\Exceptions\ConnectException;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Exceptions\RequestException;
+use DejwCake\SmsClient\Exceptions\ServerException;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface as GuzzleInterface;
 use GuzzleHttp\Exception\ClientException as GuzzleClientException;
@@ -14,13 +21,6 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Drivers\O2SK;
-use Matthewbdaly\SMS\Exceptions\ClientException;
-use Matthewbdaly\SMS\Exceptions\ConnectException;
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
-use Matthewbdaly\SMS\Exceptions\RequestException;
-use Matthewbdaly\SMS\Exceptions\ServerException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 

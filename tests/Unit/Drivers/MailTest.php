@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Tests\Unit\Drivers;
+namespace DejwCake\SmsClient\Tests\Unit\Drivers;
 
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Contracts\Mailer;
-use Matthewbdaly\SMS\Drivers\Mail;
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Contracts\Mailer;
+use DejwCake\SmsClient\Drivers\Mail;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 

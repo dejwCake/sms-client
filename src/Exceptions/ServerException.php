@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Exceptions;
+namespace DejwCake\SmsClient\Exceptions;
 
 use Exception;
 

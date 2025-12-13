@@ -2,13 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Tests\Support;
+namespace DejwCake\SmsClient\Tests\Support;
 
 use Aws\Sns\SnsClient;
 
-/**
- * Test double to spy on SnsClient::publish calls.
- */
 class SpySnsClient extends SnsClient
 {
     private int $publishCalls = 0;
@@ -37,6 +34,9 @@ class SpySnsClient extends SnsClient
         return $this->publishCalls;
     }
 
+    /**
+     * @return array<string, string|int|bool>|null
+     */
     public function getLastPublishArgs(): ?array
     {
         return $this->lastPublishArgs;
