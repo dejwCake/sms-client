@@ -159,4 +159,16 @@ final class ClockworkTest extends TestCase
         $this->expectException(ConnectException::class);
         $driver->sendRequest($msg);
     }
+
+    public function testEndpointCanBeOverriddenInConfig(): void
+    {
+        $client = new GuzzleClient();
+        $response = $this->createStub(ResponseInterface::class);
+        $config = [
+            'apiKey' => 'MY_DUMMY_API_KEY',
+            'endpoint' => 'https://example.test/clockwork/send',
+        ];
+        $driver = new Clockwork($client, $response, $config);
+        self::assertSame('https://example.test/clockwork/send', $driver->getEndpoint());
+    }
 }

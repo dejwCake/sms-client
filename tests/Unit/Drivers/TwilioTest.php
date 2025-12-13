@@ -195,4 +195,17 @@ final class TwilioTest extends TestCase
         $this->expectException(ConnectException::class);
         $driver->sendRequest($msg);
     }
+
+    public function testEndpointCanBeOverriddenInConfig(): void
+    {
+        $client = new GuzzleClient();
+        $response = $this->createStub(ResponseInterface::class);
+        $config = [
+            'accountId' => 'MY_TWILIO_ACCOUNT_ID',
+            'apiToken' => 'MY_TWILIO_API_TOKEN',
+            'endpoint' => 'https://example.test/twilio/messages',
+        ];
+        $driver = new Twilio($client, $response, $config);
+        self::assertSame('https://example.test/twilio/messages', $driver->getEndpoint());
+    }
 }

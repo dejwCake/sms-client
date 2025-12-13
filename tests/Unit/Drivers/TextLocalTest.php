@@ -178,4 +178,16 @@ final class TextLocalTest extends TestCase
         $this->expectException(ConnectException::class);
         $driver->sendRequest($msg);
     }
+
+    public function testEndpointCanBeOverriddenInConfig(): void
+    {
+        $client = new GuzzleClient();
+        $response = $this->createStub(ResponseInterface::class);
+        $config = [
+            'apiKey' => 'blah',
+            'endpoint' => 'https://example.test/textlocal/send',
+        ];
+        $driver = new TextLocal($client, $response, $config);
+        self::assertSame('https://example.test/textlocal/send', $driver->getEndpoint());
+    }
 }

@@ -158,4 +158,16 @@ final class RequestBinTest extends TestCase
         $this->expectException(ConnectException::class);
         $driver->sendRequest($msg);
     }
+
+    public function testEndpointCanBeOverriddenInConfig(): void
+    {
+        $client = new GuzzleClient();
+        $response = $this->createStub(ResponseInterface::class);
+        $config = [
+            'path' => 'blah',
+            'endpoint' => 'https://example.test/',
+        ];
+        $driver = new RequestBin($client, $response, $config);
+        self::assertSame('https://example.test/blah', $driver->getEndpoint());
+    }
 }

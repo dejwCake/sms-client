@@ -170,4 +170,15 @@ final class O2SKTest extends TestCase
         $this->expectException(ConnectException::class);
         $driver->sendRequest($msg);
     }
+
+    public function testEndpointCanBeOverriddenInConfig(): void
+    {
+        $client = new GuzzleClient();
+        $config = [
+            'apiKey' => 'MY_O2SK_API_KEY',
+            'endpoint' => 'https://example.test/o2sk/send_batch',
+        ];
+        $driver = new O2SK($client, $config);
+        self::assertSame('https://example.test/o2sk/send_batch', $driver->getEndpoint());
+    }
 }

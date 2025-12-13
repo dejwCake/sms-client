@@ -192,4 +192,17 @@ final class NexmoTest extends TestCase
         $this->expectException(ConnectException::class);
         $driver->sendRequest($msg);
     }
+
+    public function testEndpointCanBeOverriddenInConfig(): void
+    {
+        $client = new GuzzleClient();
+        $response = $this->createStub(ResponseInterface::class);
+        $config = [
+            'apiKey' => 'foo',
+            'apiSecret' => 'bar',
+            'endpoint' => 'https://example.test/custom-endpoint',
+        ];
+        $driver = new Nexmo($client, $response, $config);
+        self::assertSame('https://example.test/custom-endpoint', $driver->getEndpoint());
+    }
 }
