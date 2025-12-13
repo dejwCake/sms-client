@@ -19,21 +19,26 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "aws/aws-sdk-php": "^3.367",
         "guzzlehttp/guzzle": "^7.10",
         "psr/log": "^3.0"
     },
     "require-dev": {
-        "phpspec/phpspec": "^7.6.0"
+        "phpspec/phpspec": "^7.6.0",
+        "phpunit/phpunit": "12.5.3"
     },
     "suggest": {
         "aws/aws-sdk-php": "Allows using the AWS SNS driver"
     },
     "autoload": {
         "psr-4": {
-            "Matthewbdaly\\SMS\\": "src/",
-            "spec\\Matthewbdaly\\SMS\\": "spec/"
+            "Matthewbdaly\\SMS\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Matthewbdaly\\SMS\\Tests\\": "tests/"
         }
     }
 }

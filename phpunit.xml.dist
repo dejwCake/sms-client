@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/12.5/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         cacheDirectory=".phpunit.cache"
+         colors="true">
+
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Functional">
+            <directory suffix="Test.php">./tests/Functional</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <env name="ENV" value="test" force="true"/>
+    </php>
+
+    <source>
+        <include>
+            <directory suffix=".php">./src/</directory>
+        </include>
+    </source>
+
+    <logging>
+        <junit outputFile="./tests/_output/report.xml"/>
+    </logging>
+
+    <coverage>
+        <report>
+            <clover outputFile="./tests/_output/coverage.xml"/>
+            <php outputFile="./tests/_output/coverage.serialized"/>
+            <text outputFile="php://stdout" showOnlySummary="true"/>
+        </report>
+    </coverage>
+
+</phpunit>

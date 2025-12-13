@@ -1,6 +1,6 @@
 services:
   cli:
-    image: dejwcake/php8.2:1
+    image: dejwcake/php8.3:1
     environment:
       APP_ENV: "local"
       XDEBUG_HOST: "host.docker.internal"
@@ -12,13 +12,13 @@ services:
       - composer-cache:/home/harbor/.config/composer/cache
 
   php-qa:
-    image: dejwcake/phpqa8.2:2
+    image: dejwcake/phpqa8.3:1
     volumes:
       - .:/var/www/html:delegated
 
   test:
     container_name: sms-client-test
-    image: dejwcake/php8.2:1
+    image: dejwcake/php8.3:1
     environment:
       ENV: test
     volumes:
