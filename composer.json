@@ -19,13 +19,12 @@
         }
     ],
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "aws/aws-sdk-php": "^3.367",
         "guzzlehttp/guzzle": "^7.10",
         "psr/log": "^3.0"
     },
     "require-dev": {
-        "phpspec/phpspec": "^7.6.0",
         "phpunit/phpunit": "12.5.3"
     },
     "suggest": {

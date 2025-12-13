@@ -255,7 +255,7 @@ Creating your own driver
 
 It's easy to create your own driver - just implement the `Matthewbdaly\SMS\Contracts\Driver` interface. You can use whatever method is most appropriate for sending the SMS - for instance, if your provider has a mail-to-SMS gateway, you can happily use Swiftmailer or PHPMailer in your driver to send emails, or if they have a REST API you can use Guzzle.
 
-You can pass any configuration options required in the `config` array in the constructor of the driver. Please ensure that your driver has tests using PHPSpec (see the existing drivers for examples), and that it meets the coding standard (the package includes a PHP Codesniffer configuration for that reason).
+You can pass any configuration options required in the `config` array in the constructor of the driver. Please ensure that your driver has tests using PHPUnit and that it meets the coding standard (the package includes a PHP Codesniffer configuration for that reason).
 
 If you've created a new driver, feel free to submit a pull request and I'll consider including it.
 
@@ -277,8 +277,7 @@ docker compose run --rm php-qa composer normalize
 
 Run tests with pcov:
 ```shell
-#docker compose run --rm test ./vendor/bin/phpunit -d pcov.enabled=1
-docker compose run --rm test ./vendor/bin/phpspec run
+docker compose run --rm test ./vendor/bin/phpunit -d pcov.enabled=1
 ```
 
 ### Run code analysis tools (php-qa)
@@ -305,5 +304,5 @@ docker compose run --rm php-qa phpstan analyse --configuration=phpstan.neon
 
 Mess detector (phpmd):
 ```shell
-docker compose run --rm php-qa phpmd ./src ansi phpmd.xml --suffixes php --baseline-file phpmd.baseline.xml
+docker compose run --rm php-qa phpmd ./src,./tests ansi phpmd.xml --suffixes php --baseline-file phpmd.baseline.xml
 ```

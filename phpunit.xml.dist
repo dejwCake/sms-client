@@ -9,9 +9,6 @@
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
-        <testsuite name="Functional">
-            <directory suffix="Test.php">./tests/Functional</directory>
-        </testsuite>
     </testsuites>
 
     <php>
@@ -27,13 +24,5 @@
     <logging>
         <junit outputFile="./tests/_output/report.xml"/>
     </logging>
-
-    <coverage>
-        <report>
-            <clover outputFile="./tests/_output/coverage.xml"/>
-            <php outputFile="./tests/_output/coverage.serialized"/>
-            <text outputFile="php://stdout" showOnlySummary="true"/>
-        </report>
-    </coverage>
 
 </phpunit>

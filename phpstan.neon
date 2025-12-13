@@ -3,7 +3,7 @@ includes:
 
 parameters:
     level: 5
-    phpVersion: 80200
+    phpVersion: 80400
     reportUnmatchedIgnoredErrors: false
     type_coverage:
         return: 75
@@ -14,8 +14,8 @@ parameters:
     tmpDir: .phpstan.cache
 
     paths:
-        - ./spec
         - ./src
+        - ./tests
 
     ignoreErrors:
 

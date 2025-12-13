@@ -23,7 +23,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 final readonly class RequestBin implements Driver
 {
-    private const ENDPOINT = 'https://requestb.in/';
+    private const string ENDPOINT = 'https://requestb.in/';
 
     /**
      * Path.

@@ -23,7 +23,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 final readonly class TextLocal implements Driver
 {
-    private const ENDPOINT = 'https://api.txtlocal.com/send/';
+    private const string ENDPOINT = 'https://api.txtlocal.com/send/';
 
     /**
      * Endpoint.

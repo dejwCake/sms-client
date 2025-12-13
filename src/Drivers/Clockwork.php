@@ -23,7 +23,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 final readonly class Clockwork implements Driver
 {
-    private const ENDPOINT = 'https://api.clockworksms.com/http/send.aspx';
+    private const string ENDPOINT = 'https://api.clockworksms.com/http/send.aspx';
 
     /**
      * Endpoint.

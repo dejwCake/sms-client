@@ -23,7 +23,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 final readonly class Twilio implements Driver
 {
-    private const ENDPOINT = 'https://api.twilio.com/2010-04-01/Accounts/%s/Messages.json';
+    private const string ENDPOINT = 'https://api.twilio.com/2010-04-01/Accounts/%s/Messages.json';
 
     /**
      * Endpoint.

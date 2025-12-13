@@ -23,7 +23,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 final readonly class Nexmo implements Driver
 {
-    private const ENDPOINT = 'https://rest.nexmo.com/sms/json';
+    private const string ENDPOINT = 'https://rest.nexmo.com/sms/json';
 
     /**
      * Endpoint.

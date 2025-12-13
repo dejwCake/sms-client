@@ -5,10 +5,10 @@
     <arg value="nsp" />
     <arg name="cache" value=".phpcs.cache" />
 
-    <config name="php_version" value="80200" />
+    <config name="php_version" value="80400" />
 
-<!--    <file>spec/</file>-->
     <file>src/</file>
+    <file>tests/</file>
 
     <!--not exactly nice, but working solution-->
     <rule ref="/root/.composer/vendor/dejwcake/php-code-style/base.phpcs.xml" />
@@ -17,13 +17,8 @@
         <properties>
             <property name="rootNamespaces" type="array">
                 <element key="src" value="Matthewbdaly\SMS"/>
-                <element key="spec" value="spec\Matthewbdaly\SMS"/>
+                <element key="tests" value="Matthewbdaly\SMS\Tests"/>
             </property>
         </properties>
     </rule>
-
-    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
-        <exclude-pattern>spec/</exclude-pattern>
-    </rule>
-
 </ruleset>

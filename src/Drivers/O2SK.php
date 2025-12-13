@@ -26,7 +26,7 @@ use Matthewbdaly\SMS\Exceptions\ServerException;
  */
 final readonly class O2SK implements Driver
 {
-    private const ENDPOINT = 'https://api-tls12.smstools.sk/3/send_batch';
+    private const string ENDPOINT = 'https://api-tls12.smstools.sk/3/send_batch';
 
     /**
      * API Key.

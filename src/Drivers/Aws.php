@@ -18,7 +18,7 @@ final readonly class Aws implements Driver
     /**
      * SNS Client
      */
-    private SnsClient|null $sns;
+    private SnsClient $sns;
 
     /**
      * @param array<string, string> $config The configuration array.

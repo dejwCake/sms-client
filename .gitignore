@@ -7,5 +7,4 @@
 .run
 composer.lock
 docker-compose.override.yml
-test*
 vendor/
