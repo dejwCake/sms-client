@@ -21,22 +21,14 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Driver for TextLocal
  */
-final class TextLocal implements Driver
+final readonly class TextLocal implements Driver
 {
-    /**
-     * Guzzle client.
-     */
-    protected GuzzleClient $client;
-
-    /**
-     * Guzzle response.
-     */
-    protected ResponseInterface $response;
+    private const ENDPOINT = 'https://api.txtlocal.com/send/';
 
     /**
      * Endpoint.
      */
-    private string $endpoint = 'https://api.txtlocal.com/send/';
+    private string $endpoint;
 
     /**
      * API Key.
@@ -49,14 +41,11 @@ final class TextLocal implements Driver
      * @param array<string, string> $config The configuration array.
      * @throws DriverNotConfiguredException Driver not configured correctly.
      */
-    public function __construct(GuzzleClient $client, ResponseInterface $response, array $config)
+    public function __construct(protected GuzzleClient $client, protected ResponseInterface $response, array $config)
     {
-        $this->client = $client;
-        $this->response = $response;
-        if (!array_key_exists('apiKey', $config)) {
-            throw new DriverNotConfiguredException();
-        }
+        $this->validateConfig($config);
         $this->apiKey = $config['apiKey'];
+        $this->endpoint = $config['endpoint'] ?? self::ENDPOINT;
     }
 
     /**
@@ -105,5 +94,16 @@ final class TextLocal implements Driver
         }
 
         return true;
+    }
+
+    /**
+     * @param array<string, string> $config
+     * @throws DriverNotConfiguredException
+     */
+    private function validateConfig(array $config): void
+    {
+        if (!array_key_exists('apiKey', $config)) {
+            throw new DriverNotConfiguredException();
+        }
     }
 }

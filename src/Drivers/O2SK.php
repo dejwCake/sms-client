@@ -24,12 +24,9 @@ use Matthewbdaly\SMS\Exceptions\ServerException;
  * @documentation https://smstools.sk/downloads/SMSTOOLS-API-dokumentacia.pdf
  * @package Matthewbdaly\SMS\Drivers
  */
-final class O2SK implements Driver
+final readonly class O2SK implements Driver
 {
-    /**
-     * Guzzle client.
-     */
-    private GuzzleClient $client;
+    private const ENDPOINT = 'https://api-tls12.smstools.sk/3/send_batch';
 
     /**
      * API Key.
@@ -46,17 +43,11 @@ final class O2SK implements Driver
      * @param array $config The configuration array.
      * @throws DriverNotConfiguredException Driver not configured correctly.
      */
-    public function __construct(GuzzleClient $client, array $config)
+    public function __construct(protected GuzzleClient $client, array $config)
     {
-        $this->client = $client;
-        $config = array_merge([
-            'endpoint' => 'https://api-tls12.smstools.sk/3/send_batch',
-        ], $config);
-        if (!array_key_exists('apiKey', $config)) {
-            throw new DriverNotConfiguredException();
-        }
+        $this->validateConfig($config);
         $this->apiKey = $config['apiKey'];
-        $this->endpoint = $config['endpoint'];
+        $this->endpoint = $config['endpoint'] ?? self::ENDPOINT;
     }
 
     /**
@@ -107,5 +98,16 @@ final class O2SK implements Driver
         }
 
         return true;
+    }
+
+    /**
+     * @param array<string, string> $config
+     * @throws DriverNotConfiguredException
+     */
+    private function validateConfig(array $config): void
+    {
+        if (!array_key_exists('apiKey', $config)) {
+            throw new DriverNotConfiguredException();
+        }
     }
 }

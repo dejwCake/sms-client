@@ -12,29 +12,21 @@ use Throwable;
 /**
  * Generic mail driver
  */
-final class Mail implements Driver
+final readonly class Mail implements Driver
 {
-    /**
-     * Mailer.
-     */
-    protected Mailer $mailer;
-
     /**
      * Endpoint.
      */
-    protected string $endpoint;
+    private string $endpoint;
 
     /**
      * @param Mailer $mailer The Mailer instance.
      * @param array<string, string> $config The configuration.
      * @throws DriverNotConfiguredException Driver not configured correctly.
      */
-    public function __construct(Mailer $mailer, array $config)
+    public function __construct(protected Mailer $mailer, array $config)
     {
-        $this->mailer = $mailer;
-        if (!array_key_exists('domain', $config)) {
-            throw new DriverNotConfiguredException();
-        }
+        $this->validateConfig($config);
         $this->endpoint = $config['domain'];
     }
 
@@ -68,6 +60,17 @@ final class Mail implements Driver
             return true;
         } catch (Throwable) {
             return false;
+        }
+    }
+
+    /**
+     * @param array<string, string> $config
+     * @throws DriverNotConfiguredException
+     */
+    private function validateConfig(array $config): void
+    {
+        if (!array_key_exists('domain', $config)) {
+            throw new DriverNotConfiguredException();
         }
     }
 }

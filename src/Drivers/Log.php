@@ -10,19 +10,13 @@ use Psr\Log\LoggerInterface;
 /**
  * Driver for Clockwork.
  */
-final class Log implements Driver
+final readonly class Log implements Driver
 {
-    /**
-     * Logger.
-     */
-    private LoggerInterface $logger;
-
     /**
      * @param LoggerInterface $logger The logger instance.
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct(protected LoggerInterface $logger)
     {
-        $this->logger = $logger;
     }
 
     /**

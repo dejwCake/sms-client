@@ -20,12 +20,12 @@
     ],
     "require": {
         "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.4.5",
+        "aws/aws-sdk-php": "^3.367",
+        "guzzlehttp/guzzle": "^7.10",
         "psr/log": "^3.0"
     },
     "require-dev": {
-        "aws/aws-sdk-php": "^3.231",
-        "phpspec/phpspec": "^7.2.0"
+        "phpspec/phpspec": "^7.6.0"
     },
     "suggest": {
         "aws/aws-sdk-php": "Allows using the AWS SNS driver"

@@ -17,7 +17,7 @@ interface Client
     /**
      * Send the message.
      *
-     * @param array<string, string> $msg The message array.
+     * @param array<string, string> $message The message array.
      */
-    public function send(array $msg): bool;
+    public function send(array $message): bool;
 }

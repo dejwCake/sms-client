@@ -21,17 +21,9 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Driver for RequestBin.
  */
-final class RequestBin implements Driver
+final readonly class RequestBin implements Driver
 {
-    /**
-     * Guzzle client.
-     */
-    protected GuzzleClient $client;
-
-    /**
-     * Guzzle response.
-     */
-    protected ResponseInterface $response;
+    private const ENDPOINT = 'https://requestb.in/';
 
     /**
      * Path.
@@ -41,7 +33,7 @@ final class RequestBin implements Driver
     /**
      * Endpoint.
      */
-    private string $endpoint = 'https://requestb.in/';
+    private string $endpoint;
 
     /**
      * @param GuzzleClient $client The Guzzle Client instance.
@@ -49,14 +41,11 @@ final class RequestBin implements Driver
      * @param array<string, string> $config The configuration array.
      * @throws DriverNotConfiguredException Driver not configured correctly.
      */
-    public function __construct(GuzzleClient $client, ResponseInterface $response, array $config)
+    public function __construct(protected GuzzleClient $client, protected ResponseInterface $response, array $config)
     {
-        $this->client = $client;
-        $this->response = $response;
-        if (!array_key_exists('path', $config)) {
-            throw new DriverNotConfiguredException();
-        }
+        $this->validateConfig($config);
         $this->path = $config['path'];
+        $this->endpoint = $config['endpoint'] ?? self::ENDPOINT;
     }
 
     /**
@@ -100,5 +89,16 @@ final class RequestBin implements Driver
         }
 
         return true;
+    }
+
+    /**
+     * @param array<string, string> $config
+     * @throws DriverNotConfiguredException
+     */
+    private function validateConfig(array $config): void
+    {
+        if (!array_key_exists('path', $config)) {
+            throw new DriverNotConfiguredException();
+        }
     }
 }

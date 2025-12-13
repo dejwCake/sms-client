@@ -277,7 +277,8 @@ docker compose run --rm php-qa composer normalize
 
 Run tests with pcov:
 ```shell
-docker compose run --rm test ./vendor/bin/phpunit -d pcov.enabled=1
+#docker compose run --rm test ./vendor/bin/phpunit -d pcov.enabled=1
+docker compose run --rm test ./vendor/bin/phpspec run
 ```
 
 ### Run code analysis tools (php-qa)
@@ -304,5 +305,5 @@ docker compose run --rm php-qa phpstan analyse --configuration=phpstan.neon
 
 Mess detector (phpmd):
 ```shell
-docker compose run --rm php-qa phpmd ./config,./src,./tests ansi phpmd.xml --suffixes php --baseline-file phpmd.baseline.xml
+docker compose run --rm php-qa phpmd ./src ansi phpmd.xml --suffixes php --baseline-file phpmd.baseline.xml
 ```
