@@ -259,11 +259,50 @@ You can pass any configuration options required in the `config` array in the con
 
 If you've created a new driver, feel free to submit a pull request and I'll consider including it.
 
-TODO
-----
+## How to develop this project
 
-I have plans for a 2.0 release which include:
+### Composer
 
-* More drivers! If you're using an SMS provider that isn't on the list and you'd like to see support for it in this library, go ahead and create your own driver and submit a pull request for it.
-* Remove dependency on Guzzle and replace it with HTTPlug so it doesn't need a specific implementation.
-* Add a factory for resolving the drivers automatically.
+Update dependencies:
+```shell
+docker compose run --rm cli composer update
+```
+
+Composer normalization:
+```shell
+docker compose run --rm php-qa composer normalize
+```
+
+### Run tests
+
+Run tests with pcov:
+```shell
+docker compose run --rm test ./vendor/bin/phpunit -d pcov.enabled=1
+```
+
+### Run code analysis tools (php-qa)
+
+PHP compatibility:
+```shell
+docker compose run --rm php-qa phpcs --standard=.phpcs.compatibility.xml --cache=.phpcs.cache
+```
+
+Code style:
+```shell
+docker compose run --rm php-qa phpcs -s --colors --extensions=php
+```
+
+Fix style issues:
+```shell
+docker compose run --rm php-qa phpcbf -s --colors --extensions=php
+```
+
+Static analysis (phpstan):
+```shell
+docker compose run --rm php-qa phpstan analyse --configuration=phpstan.neon
+```
+
+Mess detector (phpmd):
+```shell
+docker compose run --rm php-qa phpmd ./config,./src,./tests ansi phpmd.xml --suffixes php --baseline-file phpmd.baseline.xml
+```

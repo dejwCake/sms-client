@@ -12,10 +12,10 @@
     <arg name="extensions" value="php" />
     <arg value="p" />
 
-    <file>src/</file>
     <file>spec/</file>
+    <file>src/</file>
 
     <!-- Include whole PHPCompatibility standard -->
     <rule ref="PHPCompatibility" />
-    <config name="testVersion" value="8.1-"/>
+    <config name="testVersion" value="8.2-"/>
 </ruleset>
