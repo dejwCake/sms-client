@@ -2,27 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
-use Matthewbdaly\SMS\Contracts\Driver;
+use DejwCake\SmsClient\Contracts\Driver;
 use Psr\Log\LoggerInterface;
 
 /**
  * Driver for Clockwork.
  */
-final class Log implements Driver
+final readonly class Log implements Driver
 {
-    /**
-     * Logger.
-     */
-    private LoggerInterface $logger;
-
     /**
      * @param LoggerInterface $logger The logger instance.
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct(protected LoggerInterface $logger)
     {
-        $this->logger = $logger;
     }
 
     /**

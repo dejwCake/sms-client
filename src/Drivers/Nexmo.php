@@ -2,41 +2,33 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Exceptions\ClientException;
+use DejwCake\SmsClient\Exceptions\ConnectException;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Exceptions\RequestException;
+use DejwCake\SmsClient\Exceptions\ServerException;
 use GuzzleHttp\ClientInterface as GuzzleClient;
 use GuzzleHttp\Exception\ClientException as GuzzleClientException;
 use GuzzleHttp\Exception\ConnectException as GuzzleConnectException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException as GuzzleRequestException;
 use GuzzleHttp\Exception\ServerException as GuzzleServerException;
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Exceptions\ClientException;
-use Matthewbdaly\SMS\Exceptions\ConnectException;
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
-use Matthewbdaly\SMS\Exceptions\RequestException;
-use Matthewbdaly\SMS\Exceptions\ServerException;
 use Psr\Http\Message\ResponseInterface;
 
 /**
  * Driver for Nexmo.
  */
-final class Nexmo implements Driver
+final readonly class Nexmo implements Driver
 {
-    /**
-     * Guzzle client.
-     */
-    protected GuzzleClient $client;
-
-    /**
-     * Guzzle response.
-     */
-    protected ResponseInterface $response;
+    private const string ENDPOINT = 'https://rest.nexmo.com/sms/json';
 
     /**
      * Endpoint.
      */
-    private string $endpoint = 'https://rest.nexmo.com/sms/json';
+    private string $endpoint;
 
     /**
      * API Key.
@@ -54,15 +46,12 @@ final class Nexmo implements Driver
      * @param array<string, string> $config The configuration array.
      * @throws DriverNotConfiguredException Driver not configured correctly.
      */
-    public function __construct(GuzzleClient $client, ResponseInterface $response, array $config)
+    public function __construct(protected GuzzleClient $client, protected ResponseInterface $response, array $config)
     {
-        $this->client = $client;
-        $this->response = $response;
-        if (!array_key_exists('apiKey', $config) || !array_key_exists('apiSecret', $config)) {
-            throw new DriverNotConfiguredException();
-        }
+        $this->validateConfig($config);
         $this->apiKey = $config['apiKey'];
         $this->apiSecret = $config['apiSecret'];
+        $this->endpoint = $config['endpoint'] ?? self::ENDPOINT;
     }
 
     /**
@@ -110,5 +99,16 @@ final class Nexmo implements Driver
         }
 
         return true;
+    }
+
+    /**
+     * @param array<string, string> $config
+     * @throws DriverNotConfiguredException
+     */
+    private function validateConfig(array $config): void
+    {
+        if (!array_key_exists('apiKey', $config) || !array_key_exists('apiSecret', $config)) {
+            throw new DriverNotConfiguredException();
+        }
     }
 }

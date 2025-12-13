@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS;
+namespace DejwCake\SmsClient;
 
-use Matthewbdaly\SMS\Contracts\Mailer;
+use DejwCake\SmsClient\Contracts\Mailer;
 
 /**
  * Basic mailer interface implementation

@@ -2,27 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS;
+namespace DejwCake\SmsClient;
 
-use Matthewbdaly\SMS\Contracts\Client as ClientContract;
-use Matthewbdaly\SMS\Contracts\Driver;
+use DejwCake\SmsClient\Contracts\Client as ClientContract;
+use DejwCake\SmsClient\Contracts\Driver;
 
 /**
  * SMS client.
  */
-final class Client implements ClientContract
+final readonly class Client implements ClientContract
 {
-    /**
-     * Driver to use.
-     */
-    private Driver $driver;
-
     /**
      * @param Driver $driver The driver to use.
      */
-    public function __construct(Driver $driver)
+    public function __construct(public Driver $driver)
     {
-        $this->driver = $driver;
     }
 
     /**
@@ -36,10 +30,10 @@ final class Client implements ClientContract
     /**
      * Send the message.
      *
-     * @param array<string, string> $msg The message array.
+     * @param array<string, string> $message The message array.
      */
-    public function send(array $msg): bool
+    public function send(array $message): bool
     {
-        return $this->driver->sendRequest($msg);
+        return $this->driver->sendRequest($message);
     }
 }

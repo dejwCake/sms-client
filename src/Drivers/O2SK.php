@@ -2,8 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Exceptions\ClientException;
+use DejwCake\SmsClient\Exceptions\ConnectException;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Exceptions\RequestException;
+use DejwCake\SmsClient\Exceptions\ServerException;
 use GuzzleHttp\ClientInterface as GuzzleClient;
 use GuzzleHttp\Exception\ClientException as GuzzleClientException;
 use GuzzleHttp\Exception\ConnectException as GuzzleConnectException;
@@ -11,25 +17,15 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException as GuzzleRequestException;
 use GuzzleHttp\Exception\ServerException as GuzzleServerException;
 use GuzzleHttp\RequestOptions;
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Exceptions\ClientException;
-use Matthewbdaly\SMS\Exceptions\ConnectException;
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
-use Matthewbdaly\SMS\Exceptions\RequestException;
-use Matthewbdaly\SMS\Exceptions\ServerException;
 
 /**
  * Class O2SK
  *
  * @documentation https://smstools.sk/downloads/SMSTOOLS-API-dokumentacia.pdf
- * @package Matthewbdaly\SMS\Drivers
  */
-final class O2SK implements Driver
+final readonly class O2SK implements Driver
 {
-    /**
-     * Guzzle client.
-     */
-    private GuzzleClient $client;
+    private const string ENDPOINT = 'https://api-tls12.smstools.sk/3/send_batch';
 
     /**
      * API Key.
@@ -46,17 +42,11 @@ final class O2SK implements Driver
      * @param array $config The configuration array.
      * @throws DriverNotConfiguredException Driver not configured correctly.
      */
-    public function __construct(GuzzleClient $client, array $config)
+    public function __construct(protected GuzzleClient $client, array $config)
     {
-        $this->client = $client;
-        $config = array_merge([
-            'endpoint' => 'https://api-tls12.smstools.sk/3/send_batch',
-        ], $config);
-        if (!array_key_exists('apiKey', $config)) {
-            throw new DriverNotConfiguredException();
-        }
+        $this->validateConfig($config);
         $this->apiKey = $config['apiKey'];
-        $this->endpoint = $config['endpoint'];
+        $this->endpoint = $config['endpoint'] ?? self::ENDPOINT;
     }
 
     /**
@@ -107,5 +97,16 @@ final class O2SK implements Driver
         }
 
         return true;
+    }
+
+    /**
+     * @param array<string, string> $config
+     * @throws DriverNotConfiguredException
+     */
+    private function validateConfig(array $config): void
+    {
+        if (!array_key_exists('apiKey', $config)) {
+            throw new DriverNotConfiguredException();
+        }
     }
 }

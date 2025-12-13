@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<phpmd-baseline>
+  <violation rule="PHPMD\Rule\Design\TooManyPublicMethods" file="tests/Unit/Drivers/ClockworkTest.php"/>
+  <violation rule="PHPMD\Rule\Design\CouplingBetweenObjects" file="tests/Unit/Drivers/ClockworkTest.php"/>
+  <violation rule="PHPMD\Rule\Design\TooManyPublicMethods" file="tests/Unit/Drivers/NexmoTest.php"/>
+  <violation rule="PHPMD\Rule\Design\CouplingBetweenObjects" file="tests/Unit/Drivers/NexmoTest.php"/>
+  <violation rule="PHPMD\Rule\Design\TooManyPublicMethods" file="tests/Unit/Drivers/O2SKTest.php"/>
+  <violation rule="PHPMD\Rule\Design\CouplingBetweenObjects" file="tests/Unit/Drivers/O2SKTest.php"/>
+  <violation rule="PHPMD\Rule\Design\TooManyPublicMethods" file="tests/Unit/Drivers/RequestBinTest.php"/>
+  <violation rule="PHPMD\Rule\Design\CouplingBetweenObjects" file="tests/Unit/Drivers/RequestBinTest.php"/>
+  <violation rule="PHPMD\Rule\Design\TooManyPublicMethods" file="tests/Unit/Drivers/TextLocalTest.php"/>
+  <violation rule="PHPMD\Rule\Design\CouplingBetweenObjects" file="tests/Unit/Drivers/TextLocalTest.php"/>
+  <violation rule="PHPMD\Rule\Design\TooManyPublicMethods" file="tests/Unit/Drivers/TwilioTest.php"/>
+  <violation rule="PHPMD\Rule\Design\CouplingBetweenObjects" file="tests/Unit/Drivers/TwilioTest.php"/>
+</phpmd-baseline>

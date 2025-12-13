@@ -1,0 +1,29 @@
+services:
+  cli:
+    image: dejwcake/php8.4:1
+    environment:
+      APP_ENV: "local"
+      XDEBUG_HOST: "host.docker.internal"
+      HARBOR_XDEBUG: "off"
+      HARBOR_USER_UID: "1000"
+      TERMINAL_EMULATOR: "JetBrains-JediTerm"
+    volumes:
+      - .:/var/www/html:delegated
+      - composer-cache:/home/harbor/.config/composer/cache
+
+  php-qa:
+    image: dejwcake/phpqa8.4:2
+    volumes:
+      - .:/var/www/html:delegated
+
+  test:
+    container_name: sms-client-test
+    image: dejwcake/php8.4:1
+    environment:
+      ENV: test
+    volumes:
+      - .:/var/www/html:delegated
+
+volumes:
+  composer-cache:
+    external: true

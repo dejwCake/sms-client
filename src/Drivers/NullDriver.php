@@ -2,35 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
+use DejwCake\SmsClient\Contracts\Driver;
 use GuzzleHttp\ClientInterface as GuzzleClient;
-use Matthewbdaly\SMS\Contracts\Driver;
 use Psr\Http\Message\ResponseInterface;
 
 /**
  * Null driver for testing.
  */
-final class NullDriver implements Driver
+final readonly class NullDriver implements Driver
 {
-    /**
-     * Guzzle client.
-     */
-    protected GuzzleClient $client;
-
-    /**
-     * Guzzle response.
-     */
-    protected ResponseInterface $response;
-
     /**
      * @param GuzzleClient $client The Guzzle Client instance.
      * @param ResponseInterface $response The response instance.
      */
-    public function __construct(GuzzleClient $client, ResponseInterface $response)
+    public function __construct(protected GuzzleClient $client, protected ResponseInterface $response)
     {
-        $this->client = $client;
-        $this->response = $response;
     }
 
     /**

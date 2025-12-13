@@ -1,196 +1,200 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\ClientSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 1
-			path: spec/ClientSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\ClientSpec\\:\\:send\\(\\)\\.$#"
-			count: 1
-			path: spec/ClientSpec.php
-
-		-
-			message: "#^Cannot call method willReturn\\(\\) on bool\\.$#"
-			count: 1
-			path: spec/ClientSpec.php
-
-		-
-			message: "#^Cannot call method willReturn\\(\\) on string\\.$#"
-			count: 1
-			path: spec/ClientSpec.php
-
-		-
-			message: "#^Call to an undefined method Aws\\\\Result\\:\\:shouldBeCalled\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/AwsSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\AwsSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 2
-			path: spec/Drivers/AwsSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\AwsSpec\\:\\:getEndpoint\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/AwsSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\AwsSpec\\:\\:sendRequest\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/AwsSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\ClockworkSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/ClockworkSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\ClockworkSpec\\:\\:getEndpoint\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/ClockworkSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\ClockworkSpec\\:\\:sendRequest\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/ClockworkSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\LogSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/LogSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\LogSpec\\:\\:getEndpoint\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/LogSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\LogSpec\\:\\:sendRequest\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/LogSpec.php
-
-		-
-			message: "#^Cannot call method shouldHaveBeenCalled\\(\\) on void\\.$#"
-			count: 1
-			path: spec/Drivers/LogSpec.php
-
-		-
-			message: "#^Result of method Psr\\\\Log\\\\LoggerInterface\\:\\:info\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: spec/Drivers/LogSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\MailSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/MailSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\MailSpec\\:\\:getEndpoint\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/MailSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\MailSpec\\:\\:sendRequest\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/MailSpec.php
-
-		-
-			message: "#^Cannot call method shouldBeCalled\\(\\) on bool\\.$#"
-			count: 1
-			path: spec/Drivers/MailSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NexmoSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/NexmoSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NexmoSpec\\:\\:getEndpoint\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/NexmoSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NexmoSpec\\:\\:sendRequest\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/NexmoSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NullDriverSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/NullDriverSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NullDriverSpec\\:\\:getEndpoint\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/NullDriverSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\NullDriverSpec\\:\\:sendRequest\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/NullDriverSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\O2SKSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/O2SKSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\O2SKSpec\\:\\:getEndpoint\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/O2SKSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\O2SKSpec\\:\\:sendRequest\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/O2SKSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\RequestBinSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/RequestBinSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\RequestBinSpec\\:\\:getEndpoint\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/RequestBinSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\RequestBinSpec\\:\\:sendRequest\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/RequestBinSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TextLocalSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/TextLocalSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TextLocalSpec\\:\\:getEndpoint\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/TextLocalSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TextLocalSpec\\:\\:sendRequest\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/TextLocalSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TwilioSpec\\:\\:getDriver\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/TwilioSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TwilioSpec\\:\\:getEndpoint\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/TwilioSpec.php
-
-		-
-			message: "#^Call to an undefined method spec\\\\Matthewbdaly\\\\SMS\\\\Drivers\\\\TwilioSpec\\:\\:sendRequest\\(\\)\\.$#"
-			count: 1
-			path: spec/Drivers/TwilioSpec.php
-
-		-
-			message: "#^Call to an undefined method GuzzleHttp\\\\ClientInterface\\:\\:post\\(\\)\\.$#"
+			message: '#^Call to an undefined method GuzzleHttp\\ClientInterface\:\:post\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: src/Drivers/O2SK.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Client'' and DejwCake\\SmsClient\\Client will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/ClientTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Client'' and DejwCake\\SmsClient\\Client will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/ClientTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Aws will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/AwsTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Aws'' and DejwCake\\SmsClient\\Drivers\\Aws will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/AwsTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Clockwork will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/ClockworkTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Clockwork'' and DejwCake\\SmsClient\\Drivers\\Clockwork will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/ClockworkTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Log will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/LogTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Log'' and DejwCake\\SmsClient\\Drivers\\Log will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/LogTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Mail will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/MailTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Mail'' and DejwCake\\SmsClient\\Drivers\\Mail will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/MailTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Nexmo will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/NexmoTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Nexmo'' and DejwCake\\SmsClient\\Drivers\\Nexmo will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/NexmoTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\NullDriver will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/NullDriverTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\NullDriver'' and DejwCake\\SmsClient\\Drivers\\NullDriver will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/NullDriverTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\O2SK will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/O2SKTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\O2SK'' and DejwCake\\SmsClient\\Drivers\\O2SK will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/O2SKTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\RequestBin will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/RequestBinTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\RequestBin'' and DejwCake\\SmsClient\\Drivers\\RequestBin will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/RequestBinTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\TextLocal will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/TextLocalTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\TextLocal'' and DejwCake\\SmsClient\\Drivers\\TextLocal will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/TextLocalTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Contracts\\\\Driver'' and DejwCake\\SmsClient\\Drivers\\Twilio will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/TwilioTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Drivers\\\\Twilio'' and DejwCake\\SmsClient\\Drivers\\Twilio will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Drivers/TwilioTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Exceptions\\\\ClientException'' and DejwCake\\SmsClient\\Exceptions\\ClientException will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Exceptions/ClientExceptionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and DejwCake\\SmsClient\\Exceptions\\ClientException will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Exceptions/ClientExceptionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Exceptions\\\\ConnectException'' and DejwCake\\SmsClient\\Exceptions\\ConnectException will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Exceptions/ConnectExceptionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and DejwCake\\SmsClient\\Exceptions\\ConnectException will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Exceptions/ConnectExceptionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Exceptions\\\\DriverNotConfiguredException'' and DejwCake\\SmsClient\\Exceptions\\DriverNotConfiguredException will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Exceptions/DriverNotConfiguredExceptionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and DejwCake\\SmsClient\\Exceptions\\DriverNotConfiguredException will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Exceptions/DriverNotConfiguredExceptionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Exceptions\\\\RequestException'' and DejwCake\\SmsClient\\Exceptions\\RequestException will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Exceptions/RequestExceptionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and DejwCake\\SmsClient\\Exceptions\\RequestException will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Exceptions/RequestExceptionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''DejwCake\\\\SmsClient\\\\Exceptions\\\\ServerException'' and DejwCake\\SmsClient\\Exceptions\\ServerException will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Exceptions/ServerExceptionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Throwable'' and DejwCake\\SmsClient\\Exceptions\\ServerException will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/Exceptions/ServerExceptionTest.php
+

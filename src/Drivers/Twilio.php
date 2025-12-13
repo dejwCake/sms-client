@@ -2,36 +2,33 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Exceptions\ClientException;
+use DejwCake\SmsClient\Exceptions\ConnectException;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Exceptions\RequestException;
+use DejwCake\SmsClient\Exceptions\ServerException;
 use GuzzleHttp\ClientInterface as GuzzleClient;
 use GuzzleHttp\Exception\ClientException as GuzzleClientException;
 use GuzzleHttp\Exception\ConnectException as GuzzleConnectException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException as GuzzleRequestException;
 use GuzzleHttp\Exception\ServerException as GuzzleServerException;
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Exceptions\ClientException;
-use Matthewbdaly\SMS\Exceptions\ConnectException;
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
-use Matthewbdaly\SMS\Exceptions\RequestException;
-use Matthewbdaly\SMS\Exceptions\ServerException;
 use Psr\Http\Message\ResponseInterface;
 
 /**
  * Driver for Twilio.
  */
-final class Twilio implements Driver
+final readonly class Twilio implements Driver
 {
-    /**
-     * Guzzle client.
-     */
-    protected GuzzleClient $client;
+    private const string ENDPOINT = 'https://api.twilio.com/2010-04-01/Accounts/%s/Messages.json';
 
     /**
-     * Guzzle response.
+     * Endpoint.
      */
-    protected ResponseInterface $response;
+    private string $endpoint;
 
     /**
      * Account ID.
@@ -49,15 +46,12 @@ final class Twilio implements Driver
      * @param array<string, string> $config The configuration array.
      * @throws DriverNotConfiguredException Driver not configured correctly.
      */
-    public function __construct(GuzzleClient $client, ResponseInterface $response, array $config)
+    public function __construct(protected GuzzleClient $client, protected ResponseInterface $response, array $config)
     {
-        $this->client = $client;
-        $this->response = $response;
-        if (!array_key_exists('accountId', $config) || !array_key_exists('apiToken', $config)) {
-            throw new DriverNotConfiguredException();
-        }
+        $this->validateConfig($config);
         $this->accountId = $config['accountId'];
         $this->apiToken = $config['apiToken'];
+        $this->endpoint = $config['endpoint'] ?? sprintf(self::ENDPOINT, $this->accountId);
     }
 
     /**
@@ -73,7 +67,7 @@ final class Twilio implements Driver
      */
     public function getEndpoint(): string
     {
-        return "https://api.twilio.com/2010-04-01/Accounts/$this->accountId/Messages.json";
+        return $this->endpoint;
     }
 
     /**
@@ -111,5 +105,16 @@ final class Twilio implements Driver
         }
 
         return true;
+    }
+
+    /**
+     * @param array<string, string> $config
+     * @throws DriverNotConfiguredException
+     */
+    private function validateConfig(array $config): void
+    {
+        if (!array_key_exists('accountId', $config) || !array_key_exists('apiToken', $config)) {
+            throw new DriverNotConfiguredException();
+        }
     }
 }

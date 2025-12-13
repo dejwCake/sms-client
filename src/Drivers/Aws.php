@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Matthewbdaly\SMS\Drivers;
+namespace DejwCake\SmsClient\Drivers;
 
 use Aws\Sns\Exception\SnsException;
 use Aws\Sns\SnsClient;
-use Matthewbdaly\SMS\Contracts\Driver;
-use Matthewbdaly\SMS\Exceptions\ClientException;
-use Matthewbdaly\SMS\Exceptions\DriverNotConfiguredException;
+use DejwCake\SmsClient\Contracts\Driver;
+use DejwCake\SmsClient\Exceptions\ClientException;
+use DejwCake\SmsClient\Exceptions\DriverNotConfiguredException;
 
 /**
  * Driver for AWS SNS.
  */
-final class Aws implements Driver
+final readonly class Aws implements Driver
 {
     /**
      * SNS Client
      */
-    protected SnsClient|null $sns;
+    private SnsClient $sns;
 
     /**
      * @param array<string, string> $config The configuration array.
@@ -28,13 +28,8 @@ final class Aws implements Driver
     public function __construct(array $config = [], ?SnsClient $sns = null)
     {
         if (!$sns) {
-            if (
-                !array_key_exists('apiKey', $config)
-                || !array_key_exists('apiSecret', $config)
-                || !array_key_exists('apiRegion', $config)
-            ) {
-                throw new DriverNotConfiguredException();
-            }
+            $this->validateConfig($config);
+
             $params = [
                 'credentials' => [
                     'key' => $config['apiKey'],
@@ -91,5 +86,20 @@ final class Aws implements Driver
         }
 
         return true;
+    }
+
+    /**
+     * @param array<string, string> $config
+     * @throws DriverNotConfiguredException
+     */
+    private function validateConfig(array $config): void
+    {
+        if (
+            !array_key_exists('apiKey', $config)
+            || !array_key_exists('apiSecret', $config)
+            || !array_key_exists('apiRegion', $config)
+        ) {
+            throw new DriverNotConfiguredException();
+        }
     }
 }
