@@ -70,10 +70,10 @@ final readonly class O2SK implements Driver
      *
      * @param array $message An array containing the message.
      * @throws ClientException  Client exception.
-     * @throws ServerException  Server exception.
-     * @throws RequestException Request exception.
      * @throws ConnectException Connect exception.
      * @throws GuzzleException
+     * @throws RequestException Request exception.
+     * @throws ServerException  Server exception.
      */
     public function sendRequest(array $message): bool
     {

@@ -74,11 +74,11 @@ final readonly class Twilio implements Driver
      * Send the SMS.
      *
      * @param array<string, string> $message An array containing the message.
-     * @throws ServerException  Server exception.
-     * @throws RequestException Request exception.
-     * @throws ConnectException Connect exception.
      * @throws ClientException  Client exception.
+     * @throws ConnectException Connect exception.
      * @throws GuzzleException
+     * @throws RequestException Request exception.
+     * @throws ServerException  Server exception.
      */
     public function sendRequest(array $message): bool
     {
